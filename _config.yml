@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Itai Shapira"
 title_separator          : "-"
 name                     : &name "Itai Shapira"
-description              : &description "Hi, I'm Itai Shapira! I'm a graduate student at Harvard University, supported by the Nicole A. Chen and Karina A. Chen Graduate Student Research Fellowship. I'm broadly interested in finance, game theory, and theoretical deep learning. I'm fortunate to be advised by Prof. Ariel D. Procaccia."
+description              : &description "Harvard CS student"
 url                      : https://ishapira1.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "ishapira1/ishapira1.github.io"
@@ -29,7 +29,7 @@ comments:
   facebook:
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
+    colorscheme          : dark # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "gh-pages" # "master", "gh-pages"
@@ -82,13 +82,13 @@ analytics:
 author:
   name             : "Itai Shapira"
   avatar           : "id.jpg"
-  bio              : "Hi, I'm Itai Shapira! I'm a graduate student at Harvard University, supported by the Nicole A. Chen and Karina A. Chen Graduate Student Research Fellowship. I'm broadly interested in finance, game theory, and theoretical deep learning. I'm fortunate to be advised by Prof. Ariel D. Procaccia."
-  location         : "Location"
+  bio              : "Harvard CS student"
+  location         : "Boston // Tel Aviv"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           :
   googlescholar    : "https://scholar.google.com/citations?user=JOQXRbIAAAAJ&hl=en&oi=ao"
   email            : "itaishapira@g.harvard.edu"
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  researchgate     :
   uri              :
   bitbucket        :
   codepen          :
@@ -96,20 +96,20 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "ishapira1"
+  github           : "https://github.com/ishapira1"
   google_plus      :
   keybase          :
   instagram        :
-  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  impactstory      :
   lastfm           :
   linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            :
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    :
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          :
   vine             :
   weibo            :
   xing             :
