@@ -34,32 +34,16 @@
     margin-bottom: 3px;
 }
 
-.spotlight {
-    color: #ffa000;
-    font-weight: normal;
-}
-
-
 .research-details {
-    font-size: 0.5em;
+    font-size: 1em;
     display: inline;
-    font-weight: normal;
-    font-style: italic;
+        font-weight: normal;
 }
-
 
 .research-link {
     font-weight: normal;
     font-size: 0.9em;
     margin-left: 10px;
-    color: #a3279b;
-}
-
-.conference-info {
-    font-size: 0.9em; /* Adjust the size as needed */
-    font-style: normal; /* You can set this to italic if preferred */
-    //color: #333; /* Adjust the color as needed */
-    //margin-top: 5px; /* Add some space between the research details and the conference info */
 }
 
 .research-description {
@@ -74,3 +58,7 @@
     font-style: italic;
 }
 
+.spotlight {
+    color: #ffa000;
+    font-weight: normal;
+}
