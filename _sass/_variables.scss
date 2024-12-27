@@ -54,13 +54,13 @@ $light-gray                 : mix(#fff, $gray, 50%);
 $lighter-gray               : mix(#fff, $gray, 90%);
 
 $body-color                 : #e8e8e8;   // Text color (your light gray)
-$background-color           : #1c1c1c;   // Background color (your dark gray)
+$background-color           : #272935;   // Background color (your dark gray)
 $code-background-color      : #2e2e2e;   // A slightly lighter shade for code blocks
 $code-background-color-dark : #2e2e2e;   // Match code background with your theme
 $text-color                 : #e8e8e8;   // Same as body color for consistency
 $border-color               : #383838;   // A neutral border color
 
-$primary-color              : #5c83f2;   // Link color (your blue)
+$primary-color              : #bbdefb;   // Link color (your blue)
 $success-color              : #62c462;   // Keep as-is or change as needed
 $warning-color              : #f89406;   // Keep as-is or change as needed
 $danger-color               : #ee5f5b;   // Keep as-is or change as needed
