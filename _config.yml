@@ -73,7 +73,7 @@ social:
 
 # Analytics
 analytics:
-  provider               : "google" # Use "google" for Google Analytics 4 (GA4)
+  provider               : "custom" # Use "google" for Google Analytics 4 (GA4)
   google:
     tracking_id          : "G-W8TFZFL8JH" # Replace with your actual GA4 Measurement ID
 
