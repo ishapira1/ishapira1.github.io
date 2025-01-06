@@ -73,9 +73,10 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               : "google" # Use "google" for Google Analytics 4 (GA4)
   google:
-    tracking_id          :
+    tracking_id          : "G-W8TFZFL8JH" # Replace with your actual GA4 Measurement ID
+
 
 
 # Site Author
