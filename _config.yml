@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Itai Shapira – AI Alignment & Algorithmic Social Choice"
+title                    : "Itai Shapira – PhD researcher at Harvard"
 title_separator          : "–"
 name                     : &name "Itai Shapira"
 description              : &description "PhD researcher at Harvard working on pluralistic AI alignment, algorithmic social choice and optimization. Publications, code, and talks."
