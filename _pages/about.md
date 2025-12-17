@@ -15,8 +15,5 @@ redirect_from:
 </p>
 <br>
 
-
-
-
 <h2>Research</h2>
 {% include research.html %}
