@@ -2,6 +2,31 @@
     margin-bottom: 40px;
 }
 
+.research-notation {
+  display: flex;
+  align-items: baseline;
+  gap: 12px; /* Space between "Notation:" and the items */
+  font-family: sans-serif; /* Use your site's font */
+  color: #e0e0e0; /* Adjust for your dark theme */
+  font-size: 0.9rem;
+}
+
+.notation-label {
+  flex-shrink: 0; /* Prevents the label from squishing */
+  opacity: 0.7;   /* Makes the label slightly more subtle */
+}
+
+.notation-items {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to drop to next line on mobile */
+  gap: 24px;       /* THIS is the key: big space between the two definitions */
+}
+
+.auth-marker {
+  font-weight: bold;
+  color: #fff; /* Make markers pop a bit more */
+  margin-right: 4px;
+}
 
 
 .project-title {
