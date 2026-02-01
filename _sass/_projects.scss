@@ -168,3 +168,23 @@
     color: #ffa000;
     font-weight: normal;
 }
+
+
+.about-bio {
+  max-width: 72ch;
+}
+
+.about-bio p {
+  line-height: 1.7;
+  margin-bottom: 0.9rem;
+}
+
+/* calmer links inside the bio */
+.about-bio a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+.about-bio a:hover {
+  border-bottom-color: rgba(0,0,0,0.6);
+}
