@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "I'm Itai"
+title: "Itai Shapira"
 excerpt: "About me"
 author_profile: true
 redirect_from:
