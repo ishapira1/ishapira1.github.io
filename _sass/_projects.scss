@@ -115,51 +115,14 @@
   line-height: 1.45;
 }
 
-/* Spotlight label: keep it punchy but not neon */
-.spotlight {
-  color: rgba(255,255,255,0.90);
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.14);
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-weight: 600;
-}
-
-/* =========================
-   OLD
-   ========================= */
-
-//.research-notation { white-space: nowrap }
-//.research-item {
-//    margin-bottom: 40px;
-//}
-//
-//.research-title {
-//    font-size: 1.2em;
-//    font-weight: bold;
-//    margin-bottom: 3px;
-//}
-//.research-details {
-//  font-size: 0.9em;
-//  display: inline;
-//  font-weight: normal;
-//  color: #9c9da2; /* Replace with your desired color */
-//     margin-bottom: 3px;
-//}
-
-
-//.auth-marker {
-//  font-weight: 700;
-//}
-
-
-//
-//
-//.research-link {
-//    font-weight: normal;
-//    font-size: 0.9em;
-//    margin-left: 10px;
-//    color: #5c83f2;
+///* Spotlight label: keep it punchy but not neon */
+//.spotlight {
+//  color: rgba(255,255,255,0.90);
+//  background: rgba(255,255,255,0.08);
+//  border: 1px solid rgba(255,255,255,0.14);
+//  padding: 2px 8px;
+//  border-radius: 999px;
+//  font-weight: 600;
 //}
 
 .research-description {
@@ -174,10 +137,10 @@
     font-style: italic;
 }
 
-.spotlight {
-    color: #ffa000;
-    font-weight: normal;
-}
+//.spotlight {
+//    color: #ffa000;
+//    font-weight: normal;
+//}
 
 
 .about-bio {
@@ -198,3 +161,168 @@
 .about-bio a:hover {
   border-bottom-color: rgba(0,0,0,0.6);
 }
+
+
+
+/* =========================
+   Research list readability
+   ========================= */
+
+/* NEW: Meta row under title (venue/year/status/award) */
+.research-meta {
+  margin: 0 0 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.research-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.88);
+  font-size: 0.85em;
+  line-height: 1.4;
+}
+
+.badge-venue {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-year {
+  color: rgba(255,255,255,0.78);
+}
+
+.research-status {
+  color: rgba(255,255,255,0.70);
+  font-size: 0.92em;
+}
+
+.badge-award {
+  border-color: rgba(255,165,0,0.35);
+  background: rgba(255,165,0,0.10);
+  color: rgba(255,200,120,0.95);
+  font-weight: 600;
+}
+
+.research-note {
+  color: rgba(255,255,255,0.60);
+  font-size: 0.92em;
+}
+
+/* Existing rules you already have, unchanged */
+.research-notation {
+  margin: 0 0 14px 0;
+  font-size: 0.95em;
+  color: rgba(255,255,255,0.70);
+}
+
+.research-item {
+  padding: 18px 0;
+  margin: 0;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  background: transparent;
+}
+
+.research-item:first-of-type {
+  border-top: 0;
+  padding-top: 6px;
+}
+
+/* Title */
+.research-item .research-title {
+  margin: 0 0 8px 0;
+  font-size: 1.15em;
+  line-height: 1.25;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Authors */
+.research-details {
+  margin: 0 0 10px 0;
+  font-size: 0.98em;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+}
+
+/* Author links */
+.research-details a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.20);
+}
+
+.research-details a:hover {
+  border-bottom-color: rgba(255,255,255,0.55);
+}
+
+/* Links row */
+.research-link {
+  margin: 0 0 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.research-link a {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 0.92em;
+}
+
+.research-link a:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* Venue and extra info
+   OLD: this was the primary venue line
+   NEW: this is now mostly “extra info” lines (workshop, journal note, etc) */
+.conference-info {
+  margin: 6px 0 0 0; /* NEW: add breathing room since it is now a subline */
+  color: rgba(255,255,255,0.65);
+  font-size: 0.95em;
+  line-height: 1.45;
+}
+
+/* -------------------------
+   Spotlight cleanup
+   ------------------------- */
+
+/* OLD (you currently had TWO spotlight definitions, one overrides the other)
+.spotlight {
+  color: rgba(255,255,255,0.90);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.spotlight {
+  color: #ffa000;
+  font-weight: normal;
+}
+*/
+
+/* NEW: if you still have old HTML using .spotlight, keep ONE compatible style */
+.spotlight {
+  border-color: rgba(255,165,0,0.35);
+  background: rgba(255,165,0,0.10);
+  color: rgba(255,200,120,0.95);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+
