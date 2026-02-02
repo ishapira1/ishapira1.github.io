@@ -58,11 +58,29 @@
 /* =========================
    Research list readability
    ========================= */
+//.research-notation {
+//  margin: 0 0 14px 0;
+//  font-size: 0.95em;
+//  color: rgba(255,255,255,0.70);
+//}
+
+/* Notation line: calm, not a toolbar */
 .research-notation {
   margin: 0 0 14px 0;
-  font-size: 0.95em;
-  color: rgba(255,255,255,0.70);
+  font-size: 0.88em;              /* slightly smaller */
+  line-height: 1.4;
+  color: rgba(255,255,255,0.55);  /* more muted */
 }
+.notation-label {
+  color: rgba(255,255,255,0.60);
+  font-weight: 600;
+}
+
+.research-notation .auth-marker {
+  color: rgba(255,255,255,0.55);
+}
+
+
 
 .research-item {
   padding: 18px 0;
