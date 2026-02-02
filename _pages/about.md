@@ -20,7 +20,8 @@ redirect_from:
 
 <!-- Conference note -->
 <div class="about-note">
-  I’ll be at ICLR 2026 in Rio de Janeiro in April. If you’ll be there too, send me a DM and let’s chat.
+  <span class="about-note-label">Update</span>
+  I’ll be at ICLR 2026 in Rio de Janeiro in April. If you’re attending, feel free to reach out.
 </div>
 
 

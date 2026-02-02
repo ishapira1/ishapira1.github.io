@@ -196,6 +196,20 @@
   font-size: 0.95em;
 }
 
+.about-note-label {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.70);
+  font-size: 0.82em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 
 .about-bio {
   max-width: 72ch;
