@@ -18,6 +18,11 @@ redirect_from:
   </p>
 </div>
 
+<!-- Conference note -->
+<div class="about-note">
+  I’ll be at ICLR 2026 in Rio de Janeiro in April. If you’ll be there too, send me a DM and let’s chat.
+</div>
+
 
 <h2>Research</h2>
 {% include research.html %}
