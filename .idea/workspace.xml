@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7d8ca2bc-5ab9-4289-8090-d4a4cb4e5197" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pdfs/LinearModeConnectivityBranchingTranjectories.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ishapira1.github.io.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,15 +23,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pdfs" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -46,6 +49,25 @@
       <option name="presentableId" value="Default" />
       <updated>1686234445400</updated>
       <workItem from="1686234449252" duration="4000" />
+      <workItem from="1747424200373" duration="1046000" />
+      <workItem from="1747683599111" duration="3667000" />
+      <workItem from="1748201453585" duration="691000" />
+      <workItem from="1748949714331" duration="622000" />
+      <workItem from="1749830514990" duration="598000" />
+      <workItem from="1750008321672" duration="21000" />
+      <workItem from="1758630933060" duration="7687000" />
+      <workItem from="1759160352532" duration="1000" />
+      <workItem from="1759681096523" duration="96000" />
+      <workItem from="1762696688546" duration="2265000" />
+      <workItem from="1763917899866" duration="9000" />
+      <workItem from="1764806358888" duration="3387000" />
+      <workItem from="1765985899821" duration="3069000" />
+      <workItem from="1766237449269" duration="24000" />
+      <workItem from="1769434166571" duration="3404000" />
+      <workItem from="1769714761837" duration="1605000" />
+      <workItem from="1769959363560" duration="9326000" />
+      <workItem from="1771942350172" duration="90000" />
+      <workItem from="1771943693929" duration="6000" />
     </task>
     <servers />
   </component>

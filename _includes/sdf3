@@ -1,0 +1,226 @@
+import os
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.patheffects as pe
+from matplotlib.lines import Line2D
+from matplotlib.font_manager import FontProperties
+
+# 1) Fonts
+matplotlib.rcParams["mathtext.fontset"] = "stix"
+matplotlib.rcParams["font.family"] = "STIXGeneral"
+
+sns.set_style("white")
+
+# 2) Colors (your palette)
+COLOR_AGREE = "#833ab4"
+COLOR_CORR  = "#ff8b5d"
+COLOR_BASE  = COLOR_CORR
+COLOR_SURR  = COLOR_AGREE
+COLOR_RLHF  = "#d62728"
+
+# font object for legend (explicit)
+LEGEND_FP = FontProperties(family="STIXGeneral", size=18)
+
+def kde_fill_with_black_outline(
+    ax,
+    values,
+    color,
+    bw_adjust=1.4,
+    cut=3,
+    gridsize=512,
+    outline_lw=2.0,   # <- increase this for thicker KDE edge
+):
+    values = np.asarray(values, dtype=float)
+    values = values[np.isfinite(values)]
+    if len(values) < 2:
+        return
+
+    if np.nanstd(values) == 0:
+        x0 = float(values[0])
+        ax.axvline(x0, color=color, linewidth=4.0, alpha=0.35)
+        ax.axvline(x0, color="black", linewidth=outline_lw)
+        return
+
+    # filled area
+    sns.kdeplot(
+        x=values,
+        ax=ax,
+        fill=True,
+        color=color,
+        alpha=0.30,
+        linewidth=0,   # keep fill edge off, we draw the edge explicitly below
+        bw_adjust=bw_adjust,
+        cut=cut,
+        gridsize=gridsize,
+    )
+
+    # black outline (this is the "edge width" you likely mean)
+    sns.kdeplot(
+        x=values,
+        ax=ax,
+        color="black",
+        linewidth=outline_lw,   # <- increase this
+        bw_adjust=bw_adjust,
+        cut=cut,
+        gridsize=gridsize,
+        label="_nolegend_",
+    )
+
+def sample_prompts_for_kde(df_in, reward_col, seed=0):
+    def get_delta(g):
+        m_agree = g[g["mode"] == "sycophantic"][reward_col].mean()
+        m_corr  = g[g["mode"] == "corrective"][reward_col].mean()
+        return m_agree - m_corr
+
+    w = df_in.groupby("prompt_id").apply(get_delta).reset_index(name="delta")
+
+    pos = w[w["delta"] > 0].sort_values("delta", ascending=False)
+    neg = w[w["delta"] < 0].sort_values("delta", ascending=True)
+
+    rng = np.random.default_rng(seed)
+
+    pos_pool = pos.head(max(20, min(len(pos), 50)))
+    neg_pool = neg.head(max(20, min(len(neg), 50)))
+
+    if len(pos_pool) < 2 or len(neg_pool) < 1:
+        pos_ids = pos["prompt_id"].head(2).tolist()
+        neg_id = neg["prompt_id"].head(1).tolist()
+        if not neg_id and len(pos) >= 3:
+            neg_id = [pos["prompt_id"].iloc[2]]
+    else:
+        pos_ids = rng.choice(pos_pool["prompt_id"].to_numpy(), size=2, replace=False).tolist()
+        neg_id  = [rng.choice(neg_pool["prompt_id"].to_numpy(), size=1, replace=False).tolist()[0]]
+
+    return pos_ids + neg_id, w.set_index("prompt_id")
+
+def _box_spines(ax, lw=1.6):
+    # full closed box
+    for side in ["left", "bottom", "right", "top"]:
+        ax.spines[side].set_visible(True)
+        ax.spines[side].set_linewidth(lw)
+        ax.spines[side].set_color("black")
+
+def plot_three_prompt_kdes(
+    df_in,
+    reward_col,
+    pdf_path,
+    figsize=(12.5, 4.0),
+    bw_adjust=1.4,
+    cut=3,
+    gridsize=512,
+    outline_lw=2.0,     # KDE outline width
+    spine_lw=1.6,       # box width
+):
+    prompt_ids, wmap = sample_prompts_for_kde(df_in, reward_col, seed=0)
+
+    fig, axes = plt.subplots(1, 3, figsize=figsize)  # independent axes
+    fig.patch.set_facecolor("white")
+
+    for i, pid in enumerate(prompt_ids):
+        sub = df_in[df_in["prompt_id"] == pid].copy()
+        sub[reward_col] = pd.to_numeric(sub[reward_col], errors="coerce")
+        sub = sub[np.isfinite(sub[reward_col])].copy()
+
+        vals_agree = sub.loc[sub["mode"] == "sycophantic", reward_col].to_numpy(dtype=float)
+        vals_corr  = sub.loc[sub["mode"] == "corrective",  reward_col].to_numpy(dtype=float)
+
+        ax = axes[i]
+        ax.set_facecolor("white")
+
+        kde_fill_with_black_outline(
+            ax, vals_agree, COLOR_AGREE,
+            bw_adjust=bw_adjust, cut=cut, gridsize=gridsize,
+            outline_lw=outline_lw,
+        )
+        kde_fill_with_black_outline(
+            ax, vals_corr, COLOR_CORR,
+            bw_adjust=bw_adjust, cut=cut, gridsize=gridsize,
+            outline_lw=outline_lw,
+        )
+
+        # closed box + centered feel with margins
+        _box_spines(ax, lw=spine_lw)
+        ax.margins(x=0.06, y=0.10)
+        ax.grid(False)
+
+        # labels and ticks
+        if i == 0:
+            ax.set_ylabel("Density", fontsize=25, fontweight="normal")
+        else:
+            ax.set_ylabel("")
+        ax.set_xlabel("")
+
+        ax.tick_params(axis="both", labelsize=20, width=1.6, length=7)
+
+        # Δ top-right, same position for all panels
+        d = float(wmap.loc[pid, "delta"])
+        t = ax.text(
+            0.98, 0.98,
+            rf"$\Delta = {d:.2f}$",
+            transform=ax.transAxes,
+            ha="right",
+            va="top",
+            fontsize=25,
+            color="black",
+        )
+        t.set_path_effects([pe.withStroke(linewidth=4, foreground="white")])
+
+    fig.supxlabel("Reward value", fontsize=25)
+
+    # Save main plot (no legend)
+    fig.tight_layout(rect=[0, 0.02, 1, 1])
+    fig.savefig(pdf_path, bbox_inches="tight", facecolor="white")
+    print(f"Saved main plot to: {pdf_path}")
+
+    # Legend saved separately (with STIXGeneral)
+    legend_handles = [
+        Line2D([0], [0], color=COLOR_AGREE, lw=4.0, label="agreement"),
+        Line2D([0], [0], color=COLOR_CORR,  lw=4.0, label="correction"),
+    ]
+
+    fig_leg = plt.figure(figsize=(4.6, 1.2))
+    fig_leg.legend(
+        handles=legend_handles,
+        loc="center",
+        ncol=2,
+        frameon=False,
+        prop=LEGEND_FP,          # <- explicit font
+        handlelength=3.5,
+        columnspacing=1.8,
+    )
+    plt.gca().set_axis_off()
+
+    legend_path = pdf_path.replace(".pdf", "_legend.pdf")
+    fig_leg.savefig(legend_path, bbox_inches="tight", facecolor="white")
+    print(f"Saved legend to:    {legend_path}")
+
+    # IMPORTANT: no plt.close(...)
+
+    print("\n" + "=" * 40)
+    print("SELECTED PROMPTS (conv_json):")
+    print("=" * 40)
+    for i, pid in enumerate(prompt_ids):
+        p_text = df_in[df_in["prompt_id"] == pid]["conv_json"].iloc[0]
+        delta_val = float(wmap.loc[pid, "delta"])
+        print(f"\n[Plot {i+1} | Δ={delta_val:.2f}] Prompt ID: {pid}")
+        print(f"Text: {p_text}")
+
+OUT_DIR = "plots"
+reward_col = "reward_skywork"
+os.makedirs(OUT_DIR, exist_ok=True)
+
+clean_filename = "kde_three_prompts.pdf"
+plot_three_prompt_kdes(
+    df,
+    reward_col=reward_col,
+    pdf_path=os.path.join(OUT_DIR, clean_filename),
+    figsize=(12.5, 4.0),
+    bw_adjust=1.4,
+    cut=3,
+    gridsize=512,
+    outline_lw=2.0,   # change this to 3.0 or 4.0 for thicker KDE edge
+    spine_lw=1.6,
+)
