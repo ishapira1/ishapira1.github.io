@@ -21,7 +21,7 @@ redirect_from:
 <!-- Conference note -->
 <div class="about-note">
   <span class="about-note-label">Update</span>
-  I'm at ICLR 2026 in Rio de Janeiro in April. If you’re attending, feel free to reach out.
+  I'm at ICLR 2026 right now in Rio de Janeiro. If you’re attending, feel free to reach out.
 </div>
 
 
