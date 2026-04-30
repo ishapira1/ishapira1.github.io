@@ -18,12 +18,5 @@ redirect_from:
   </p>
 </div>
 
-<!-- Conference note -->
-<div class="about-note">
-  <span class="about-note-label">Update</span>
-  I'm at ICLR 2026 right now in Rio de Janeiro. If you’re attending, feel free to reach out.
-</div>
-
-
 <h2>Research</h2>
 {% include research.html %}
