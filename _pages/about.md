@@ -16,6 +16,9 @@ redirect_from:
     <a href="https://www.cmu.edu/ai-sdm/students/index.html" target="_blank" rel="noopener noreferrer">NSF AI Institute for Societal Decision Making</a>
     and serve on its Student Leadership Council. Before my PhD I worked as a senior quantitative researcher at WorldQuant (Millennium) and interned in 2025 as a quant at Two Sigma on online learning optimization.
   </p>
+  <p>
+    My <a href="/files/resume.pdf" target="_blank" rel="noopener noreferrer">resume is available here</a>.
+  </p>
 </div>
 
 <!-- Conference note -->
