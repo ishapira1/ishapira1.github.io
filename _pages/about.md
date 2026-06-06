@@ -18,15 +18,12 @@ redirect_from:
     <a href="https://www.cmu.edu/ai-sdm/students/index.html" target="_blank" rel="noopener noreferrer">NSF AI Institute for Societal Decision Making</a>
     and serve on its Student Leadership Council.
   </p>
-  <p>
-    My <a href="/files/resume.pdf" target="_blank" rel="noopener noreferrer">resume is available here</a>.
-  </p>
 </div>
 
 <!-- Conference note -->
 <div class="about-note">
   <span class="about-note-label">Update</span>
-  I’ll be at ICML in Seoul in July. If you’re attending, feel free to reach out.
+  I’ll be at ICML in Seoul this July. If you’re attending, feel free to reach out.
 </div>
 
 <h2>Research</h2>

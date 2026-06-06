@@ -95,6 +95,12 @@
   }
 }
 
+.author__avatar--home {
+  img {
+    max-width: 215px;
+  }
+}
+
 .author__content {
   display: table-cell;
   vertical-align: top;
