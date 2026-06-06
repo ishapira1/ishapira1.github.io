@@ -217,7 +217,11 @@
 
 .about-bio p {
   line-height: 1.7;
-  margin-bottom: 0.9rem;
+  margin: 0;
+}
+
+.about-bio p + p {
+  margin-top: 0.45rem;
 }
 
 /* calmer links inside the bio */
