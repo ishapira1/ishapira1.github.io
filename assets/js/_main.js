@@ -161,25 +161,19 @@ $(document).ready(function(){
     var $root = $(this);
     var $items = $root.find("[data-publication-item]");
     var $empty = $root.find("[data-publication-empty]");
-    var $typeButtons = $root.find("[data-filter-type]");
-    var $yearButtons = $root.find("[data-filter-year]");
-    var activeType = "all";
-    var activeYear = "all";
+    var $filterForm = $root.find("[data-publication-filters]");
+    var $typeSelect = $root.find("[data-filter-type-select]");
+    var $yearSelect = $root.find("[data-filter-year-select]");
+    var activeType = $typeSelect.val() || "all";
+    var activeYear = $yearSelect.val() || "all";
 
-    if ($items.length === 0 || $typeButtons.length === 0 || $yearButtons.length === 0) {
+    if ($items.length === 0 || $filterForm.length === 0 || $typeSelect.length === 0 || $yearSelect.length === 0) {
       return;
     }
 
-    var syncButtons = function($buttons, attributeName, activeValue) {
-      $buttons.each(function() {
-        var $button = $(this);
-        var isActive = $button.attr(attributeName) === activeValue;
-        $button.toggleClass("is-active", isActive);
-        $button.attr("aria-pressed", isActive ? "true" : "false");
-      });
-    };
-
     var applyFilters = function() {
+      activeType = $typeSelect.val() || "all";
+      activeYear = $yearSelect.val() || "all";
       var visibleCount = 0;
 
       $items.each(function() {
@@ -197,17 +191,10 @@ $(document).ready(function(){
       });
 
       $empty.prop("hidden", visibleCount !== 0);
-      syncButtons($typeButtons, "data-filter-type", activeType);
-      syncButtons($yearButtons, "data-filter-year", activeYear);
     };
 
-    $typeButtons.on("click", function() {
-      activeType = $(this).attr("data-filter-type");
-      applyFilters();
-    });
-
-    $yearButtons.on("click", function() {
-      activeYear = $(this).attr("data-filter-year");
+    $filterForm.on("submit", function(event) {
+      event.preventDefault();
       applyFilters();
     });
 

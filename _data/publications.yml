@@ -91,7 +91,7 @@
     #   url: https://openai.com/blog/democratic-inputs-to-ai-grant-program-update
     # - label: Talk
     #   url: https://www.youtube.com/watch?v=wS8YgEiXWOY
-  note: 73(2):1-52. Conference version at EC 2024.
+  note: "Supersedes EC-24:"
   home_featured: false
 - id: C7
   type: conference
@@ -174,11 +174,10 @@
       url: https://neurips.cc/virtual/2024/poster/94386
     # - label: arXiv
     #   url: https://arxiv.org/abs/2405.14758
-  note: >-
-    <span class="spotlight-award">
-      <span class="spotlight-award__label">NeurIPS Spotlight</span>
-      <span class="spotlight-award__detail">Top 2.1% of submissions</span>
-    </span>
+  recognition:
+    label: Spotlight
+    detail: Top 2.1% of NeurIPS 2024 submissions
+  note:
   home_featured: false
 - id: C3
   type: conference
@@ -196,11 +195,10 @@
       url: https://neurips.cc/virtual/2024/poster/96456
     # - label: arXiv
     #   url: https://arxiv.org/abs/2405.17700
-  note: >-
-    <span class="spotlight-award">
-      <span class="spotlight-award__label">NeurIPS Spotlight</span>
-      <span class="spotlight-award__detail">Top 2.1% of submissions</span>
-    </span>
+  recognition:
+    label: Spotlight
+    detail: Top 2.1% of NeurIPS 2024 submissions
+  note:
   home_featured: false
 - id: C2
   type: conference

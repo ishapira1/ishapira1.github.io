@@ -49,6 +49,10 @@
   {% endif %}
   <div class="selected-paper-list{% if scrollable %} selected-paper-list--scrollable{% endif %}">
     {% for publication in publications %}
+      {% assign has_recognition = false %}
+      {% if publication.recognition and publication.recognition.label %}
+        {% assign has_recognition = true %}
+      {% endif %}
       {% capture publication_type_label %}
         {% case publication.type %}
           {% when "conference" %}Conference
@@ -66,7 +70,7 @@
         {% endunless %}
       {% endif %}
       {% assign primary_link = publication.links | first %}
-      <article class="selected-paper">
+      <article class="selected-paper{% if has_recognition %} selected-paper--spotlight{% endif %}">
         <div class="selected-paper__meta">
           <div class="selected-paper__meta-main">
             <span class="selected-paper__id">{{ publication.id }}</span>
@@ -81,6 +85,14 @@
             <a class="selected-paper__action" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">Paper</a>
           {% endif %}
         </div>
+        {% if has_recognition %}
+          <div class="selected-paper__recognition spotlight-award">
+            <span class="spotlight-award__label">{{ publication.recognition.label }}</span>
+            {% if publication.recognition.detail %}
+              <span class="spotlight-award__detail">{{ publication.recognition.detail }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
         <h3 class="selected-paper__title">
           {% if primary_link %}
             <a class="selected-paper__stealth-link" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a>
@@ -124,37 +136,46 @@
 
 <div class="research-directory" data-publication-index>
   {% if show_filters %}
-    <div class="research-filters">
-      <div class="research-filter-group" aria-label="Filter publications by type">
-        <span class="research-filter-label">Type</span>
-        <button class="research-filter-chip is-active" type="button" data-filter-type="all" aria-pressed="true">All</button>
-        {% for type_value in ordered_types %}
-          {% if type_values contains type_value %}
-            {% capture type_label %}
-              {% case type_value %}
-                {% when "conference" %}Conference
-                {% when "journal" %}Journal
-                {% when "working_paper" %}Working paper
-                {% when "survey" %}Survey
-                {% else %}{{ type_value | replace: "_", " " | capitalize }}
-              {% endcase %}
-            {% endcapture %}
-            <button class="research-filter-chip" type="button" data-filter-type="{{ type_value }}" aria-pressed="false">{{ type_label | strip }}</button>
-          {% endif %}
-        {% endfor %}
-      </div>
-      <div class="research-filter-group" aria-label="Filter publications by year">
-        <span class="research-filter-label">Year</span>
-        <button class="research-filter-chip is-active" type="button" data-filter-year="all" aria-pressed="true">All</button>
-        {% for year_value in year_values %}
-          <button class="research-filter-chip" type="button" data-filter-year="{{ year_value }}" aria-pressed="false">{{ year_value }}</button>
-        {% endfor %}
-      </div>
-    </div>
+    <form class="research-filters" data-publication-filters>
+      <label class="research-filter-field">
+        <span class="sr-only">Filter publications by type</span>
+        <select class="research-filter-select" data-filter-type-select>
+          <option value="all">All Types</option>
+          {% for type_value in ordered_types %}
+            {% if type_values contains type_value %}
+              {% capture type_label %}
+                {% case type_value %}
+                  {% when "conference" %}Conference
+                  {% when "journal" %}Journal
+                  {% when "working_paper" %}Working paper
+                  {% when "survey" %}Survey
+                  {% else %}{{ type_value | replace: "_", " " | capitalize }}
+                {% endcase %}
+              {% endcapture %}
+              <option value="{{ type_value }}">{{ type_label | strip }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </label>
+      <label class="research-filter-field">
+        <span class="sr-only">Filter publications by year</span>
+        <select class="research-filter-select" data-filter-year-select>
+          <option value="all">All Years</option>
+          {% for year_value in year_values %}
+            <option value="{{ year_value }}">{{ year_value }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <button class="research-filter-submit" type="submit" data-filter-apply>Filter</button>
+    </form>
   {% endif %}
 
   <div class="research-list{% if scrollable %} research-list--scrollable{% endif %}">
     {% for publication in publications %}
+      {% assign has_recognition = false %}
+      {% if publication.recognition and publication.recognition.label %}
+        {% assign has_recognition = true %}
+      {% endif %}
       {% capture publication_type_label %}
         {% case publication.type %}
           {% when "conference" %}Conference
@@ -172,7 +193,7 @@
         {% endunless %}
       {% endif %}
       {% assign primary_link = publication.links | first %}
-      <article class="research-item selected-paper" data-publication-item data-type="{{ publication.type }}" data-year="{{ publication.year }}">
+      <article class="research-item selected-paper{% if has_recognition %} selected-paper--spotlight{% endif %}" data-publication-item data-type="{{ publication.type }}" data-year="{{ publication.year }}">
         <div class="selected-paper__meta">
           <div class="selected-paper__meta-main">
             <span class="selected-paper__id">{{ publication.id }}</span>
@@ -187,6 +208,14 @@
             <a class="selected-paper__action" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">Paper</a>
           {% endif %}
         </div>
+        {% if has_recognition %}
+          <div class="selected-paper__recognition spotlight-award">
+            <span class="spotlight-award__label">{{ publication.recognition.label }}</span>
+            {% if publication.recognition.detail %}
+              <span class="spotlight-award__detail">{{ publication.recognition.detail }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
         <h2 class="selected-paper__title">
           {% if primary_link %}
             <a class="selected-paper__stealth-link" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a>

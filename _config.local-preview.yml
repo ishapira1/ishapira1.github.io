@@ -1,0 +1,3 @@
+# Local preview overrides for offline development in Codex.
+# Keep GitHub metadata disabled so Jekyll doesn't wait on network calls.
+github: false

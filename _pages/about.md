@@ -9,17 +9,20 @@ redirect_from:
   - /about.html
 ---
 
-<div class="about-bio">
-  <p class="home-hero__lede">
-    I'm a CS PhD student at Harvard. I am privileged to be advised by
-    <a href="http://procaccia.info/" target="_blank" rel="noopener noreferrer">Prof. Ariel D. Procaccia</a>.
-  </p>
-  <p>
-    I am a recipient of the 2025 JPMorgan Chase PhD Fellowship, and I was also supported by the Nicole A. Chen and Karina A. Chen Graduate Student Research Fellowship. I am affiliated with the
-    <a href="https://www.cmu.edu/ai-sdm/students/index.html" target="_blank" rel="noopener noreferrer">NSF AI Institute for Societal Decision Making</a>
-    and serve on its Student Leadership Council.
-  </p>
-</div>
+<section class="home-hero">
+  <h1 class="home-hero__name">{{ site.author.name }}</h1>
+  <div class="about-bio">
+    <p class="home-hero__lede">
+      I'm a CS PhD student at Harvard. I am privileged to be advised by
+      <a href="http://procaccia.info/" target="_blank" rel="noopener noreferrer">Prof. Ariel D. Procaccia</a>.
+    </p>
+    <p>
+      I am a recipient of the 2025 JPMorgan Chase PhD Fellowship, and I was also supported by the Nicole A. Chen and Karina A. Chen Graduate Student Research Fellowship. I am affiliated with the
+      <a href="https://www.cmu.edu/ai-sdm/students/index.html" target="_blank" rel="noopener noreferrer">NSF AI Institute for Societal Decision Making</a>
+      and serve on its Student Leadership Council.
+    </p>
+  </div>
+</section>
 
 <div class="about-note">
   <span class="about-note-label">Update</span>
