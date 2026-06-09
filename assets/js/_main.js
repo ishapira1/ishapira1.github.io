@@ -7,7 +7,6 @@ $(document).ready(function(){
   var LIGHT_THEME_COLOR = "#f5f7fb";
   var DARK_THEME_COLOR = "#272935";
   var root = document.documentElement;
-  var darkModeQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   var $themeToggle = $("#theme-toggle");
   var $themeToggleText = $themeToggle.find(".theme-toggle__text");
   var themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -23,7 +22,7 @@ $(document).ready(function(){
       return explicitTheme;
     }
 
-    return darkModeQuery && darkModeQuery.matches ? "dark" : "light";
+    return "light";
   };
 
   var syncThemeColor = function(theme) {
@@ -62,23 +61,6 @@ $(document).ready(function(){
     var nextTheme = getEffectiveTheme() === "dark" ? "light" : "dark";
     setThemePreference(nextTheme);
   });
-
-  if (darkModeQuery) {
-    var handleSystemThemeChange = function(event) {
-      if (isExplicitTheme(root.getAttribute("data-theme"))) {
-        return;
-      }
-
-      syncThemeColor(event.matches ? "dark" : "light");
-      syncThemeToggle();
-    };
-
-    if (typeof darkModeQuery.addEventListener === "function") {
-      darkModeQuery.addEventListener("change", handleSystemThemeChange);
-    } else if (typeof darkModeQuery.addListener === "function") {
-      darkModeQuery.addListener(handleSystemThemeChange);
-    }
-  }
 
   syncThemeColor(getEffectiveTheme());
   syncThemeToggle();

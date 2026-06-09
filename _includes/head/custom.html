@@ -52,13 +52,10 @@
     if (savedTheme === "light" || savedTheme === "dark") {
       root.setAttribute("data-theme", savedTheme);
     } else {
-      root.removeAttribute("data-theme");
+      root.setAttribute("data-theme", "light");
     }
 
-    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var effectiveTheme = savedTheme === "light" || savedTheme === "dark"
-      ? savedTheme
-      : (prefersDark ? "dark" : "light");
+    var effectiveTheme = savedTheme === "dark" ? "dark" : "light";
     var themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
     if (themeColorMeta) {

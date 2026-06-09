@@ -81,9 +81,21 @@
             <a class="selected-paper__action" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">Paper</a>
           {% endif %}
         </div>
-        <h3 class="selected-paper__title">{{ publication.title }}</h3>
+        <h3 class="selected-paper__title">
+          {% if primary_link %}
+            <a class="selected-paper__stealth-link" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a>
+          {% else %}
+            {{ publication.title }}
+          {% endif %}
+        </h3>
         <p class="selected-paper__authors">{{ publication.authors_html }}</p>
-        <p class="selected-paper__venue-line">{{ venue_display }}</p>
+        <p class="selected-paper__venue-line">
+          {% if primary_link %}
+            <a class="selected-paper__stealth-link" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">{{ venue_display }}</a>
+          {% else %}
+            {{ venue_display }}
+          {% endif %}
+        </p>
         {% if publication.note %}
           <p class="selected-paper__note">{{ publication.note }}</p>
         {% endif %}
@@ -175,9 +187,21 @@
             <a class="selected-paper__action" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">Paper</a>
           {% endif %}
         </div>
-        <h2 class="selected-paper__title">{{ publication.title }}</h2>
+        <h2 class="selected-paper__title">
+          {% if primary_link %}
+            <a class="selected-paper__stealth-link" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a>
+          {% else %}
+            {{ publication.title }}
+          {% endif %}
+        </h2>
         <p class="selected-paper__authors">{{ publication.authors_html }}</p>
-        <p class="selected-paper__venue-line">{{ venue_display }}</p>
+        <p class="selected-paper__venue-line">
+          {% if primary_link %}
+            <a class="selected-paper__stealth-link" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">{{ venue_display }}</a>
+          {% else %}
+            {{ venue_display }}
+          {% endif %}
+        </p>
         {% if publication.links.size > 1 %}
           <div class="selected-paper__links">
             {% for link in publication.links offset:1 %}

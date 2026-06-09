@@ -680,6 +680,26 @@ html[data-theme="dark"] .theme-toggle__icon--moon {
   color: var(--theme-text-strong);
 }
 
+.selected-paper__title > .selected-paper__stealth-link,
+.selected-paper__title > .selected-paper__stealth-link:visited,
+.selected-paper__title > .selected-paper__stealth-link:hover,
+.selected-paper__title > .selected-paper__stealth-link:focus,
+.selected-paper__venue-line > .selected-paper__stealth-link,
+.selected-paper__venue-line > .selected-paper__stealth-link:visited,
+.selected-paper__venue-line > .selected-paper__stealth-link:hover,
+.selected-paper__venue-line > .selected-paper__stealth-link:focus {
+  color: inherit !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
+
+.selected-paper__title > .selected-paper__stealth-link:focus-visible,
+.selected-paper__venue-line > .selected-paper__stealth-link:focus-visible {
+  outline: 2px solid var(--theme-primary-border-strong);
+  outline-offset: 3px;
+  border-radius: 0.2rem;
+}
+
 .research-empty {
   border-color: var(--theme-primary-border);
   background: var(--theme-primary-soft);
