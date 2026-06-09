@@ -1,374 +1,634 @@
-.project-item {
-    margin-bottom: 40px;
-}
-
-.research-notation {
-  display: flex;
-  align-items: baseline;
-  gap: 12px; /* Space between "Notation:" and the items */
-  font-family: sans-serif; /* Use your site's font */
-  color: #e0e0e0; /* Adjust for your dark theme */
-  font-size: 0.9rem;
-}
-
-.notation-label {
-  flex-shrink: 0; /* Prevents the label from squishing */
-  opacity: 0.7;   /* Makes the label slightly more subtle */
-}
-
-.notation-items {
-  display: flex;
-  flex-wrap: wrap; /* Allows items to drop to next line on mobile */
-  gap: 24px;       /* THIS is the key: big space between the two definitions */
-}
-
-.auth-marker {
-  font-weight: bold;
-  color: #fff; /* Make markers pop a bit more */
-  margin-right: 4px;
-}
-
-
-.project-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-
-
-
-.project-year {
-    font-size: 1em;
-    margin-left: 10px;
-    font-weight: normal;
-}
-
-.project-link {
-    font-weight: normal;
-    font-size: 0.9em;
-    margin-left: 10px;
-    color: #5c83f2;
-}
-
-.project-description {
-    margin-top: 10px;
-    color: #9c9da2;
-}
-/* =========================
-   Research list readability
-   ========================= */
-//.research-notation {
-//  margin: 0 0 14px 0;
-//  font-size: 0.95em;
-//  color: rgba(255,255,255,0.70);
-//}
-
-/* Notation line: calm, not a toolbar */
-.research-notation {
-  margin: 0 0 14px 0;
-  font-size: 0.88em;              /* slightly smaller */
-  line-height: 1.4;
-  color: rgba(255,255,255,0.55);  /* more muted */
-}
-.notation-label {
-  color: rgba(255,255,255,0.60);
-  font-weight: 600;
-}
-
-.research-notation .auth-marker {
-  color: rgba(255,255,255,0.55);
-}
-
-
-
-.research-item {
-  padding: 18px 0;
-  margin: 0;
-  border-top: 1px solid rgba(255,255,255,0.10);
-  background: transparent;
-}
-
-.research-item:first-of-type {
-  border-top: 0;
-  padding-top: 6px;
-}
-
-/* Title */
-.research-item .research-title {
-  margin: 0 0 8px 0;
-  font-size: 1.15em;
-  line-height: 1.25;
-
-  /* Kill the accidental underline from theme h2 styling */
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-/* Authors */
-.research-details {
-  margin: 0 0 10px 0;
-  font-size: 0.98em;
-  line-height: 1.55;
-  color: rgba(255,255,255,0.78);
-}
-
-
-
-/* Author links: calm by default, underline only on hover */
-.research-details a {
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.20);
-}
-
-.research-details a:hover {
-  border-bottom-color: rgba(255,255,255,0.55);
-}
-
-/* Links row */
-.research-link {
-  margin: 0 0 10px 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.research-link a {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.85);
-  text-decoration: none;
-  font-size: 0.92em;
-}
-
-.research-link a:hover {
-  background: rgba(255,255,255,0.10);
-  border-color: rgba(255,255,255,0.28);
-}
-
-/* Venue and extra info */
-.conference-info {
-  margin: 0;
-  color: rgba(255,255,255,0.65);
-  font-size: 0.95em;
-  line-height: 1.45;
-}
-
-///* Spotlight label: keep it punchy but not neon */
-//.spotlight {
-//  color: rgba(255,255,255,0.90);
-//  background: rgba(255,255,255,0.08);
-//  border: 1px solid rgba(255,255,255,0.14);
-//  padding: 2px 8px;
-//  border-radius: 999px;
-//  font-weight: 600;
-//}
-
-.research-description {
-    margin-top: 10px;
-}
-.research-update {
-    background-color: #f4f4f4; /* light gray background */
-    border-left: 4px solid #2196F3; /* blue left border */
-    padding: 5px 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-//.spotlight {
-//    color: #ffa000;
-//    font-weight: normal;
-//}
-
-.about-note {
-  max-width: 72ch;
-  margin: 12px 0 22px 0;
-  padding: 10px 12px;
-  border-left: 3px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.72);
-  line-height: 1.55;
-  font-size: 0.95em;
-}
-
-.about-note-label {
-  display: inline-block;
-  margin-right: 10px;
-  padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.70);
-  font-size: 0.82em;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
+$surface-soft: rgba(255, 255, 255, 0.04);
+$surface-strong: rgba(255, 255, 255, 0.08);
+$surface-border: rgba(255, 255, 255, 0.12);
+$text-muted: rgba(232, 232, 232, 0.74);
+$text-soft: rgba(232, 232, 232, 0.58);
+$accent-blue: #9fd0ff;
+$accent-gold: #f2c078;
 
 .about-bio {
   max-width: 72ch;
+  margin-bottom: 1.5rem;
 }
 
 .about-bio p {
-  line-height: 1.7;
   margin: 0;
+  line-height: 1.7;
 }
 
 .about-bio p + p {
   margin-top: 0.45rem;
 }
 
-/* calmer links inside the bio */
 .about-bio a {
+  color: #fff;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0,0,0,0.25);
+  border-bottom: 1px solid rgba(159, 208, 255, 0.34);
 }
 
 .about-bio a:hover {
-  border-bottom-color: rgba(0,0,0,0.6);
+  border-bottom-color: rgba(159, 208, 255, 0.72);
 }
 
+.about-note {
+  max-width: 72ch;
+  margin: 0 0 2rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(242, 192, 120, 0.24);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(242, 192, 120, 0.12), rgba(255, 255, 255, 0.03));
+  color: rgba(255, 244, 223, 0.9);
+  line-height: 1.6;
+}
 
+.about-note-label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(242, 192, 120, 0.18);
+  color: $accent-gold;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 
-/* =========================
-   Research list readability
-   ========================= */
+.home-section {
+  margin: 0 0 2.75rem;
+}
 
-/* NEW: year lives on the title line, no pills */
-.research-item .research-title {
-  /* OLD:
-  margin: 0 0 8px 0;
-  font-size: 1.15em;
-  line-height: 1.25;
-  border-bottom: 0;
-  padding-bottom: 0;
-  */
+.home-hero__lede {
+  max-width: 72ch;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(232, 232, 232, 0.84);
+}
 
-  /* NEW: keep your existing typography, plus layout for the year */
+.home-section-head {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
+  align-items: flex-end;
   flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.research-title-year {
-  font-size: 0.85em;
+.home-section-head h2 {
+  margin: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.selected-paper,
+.research-item,
+.project-item {
+  border: 1px solid $surface-border;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.04));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+}
+
+.selected-paper-list {
+  display: grid;
+  gap: 0.84rem;
+}
+
+.selected-paper-list--scrollable {
+  max-height: 39rem;
+  overflow-y: auto;
+  padding-right: 0.45rem;
+  scrollbar-gutter: stable;
+}
+
+@media (max-width: 700px) {
+  .selected-paper-list--scrollable {
+    max-height: 35rem;
+  }
+}
+
+.selected-paper {
+  padding: 0.78rem 0.9rem;
+}
+
+.selected-paper__meta {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem 0.7rem;
+  margin-bottom: 0.42rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.selected-paper__meta-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.selected-paper__venue {
+  color: $accent-gold;
+}
+
+.selected-paper__id {
+  color: $accent-blue;
+}
+
+.selected-paper__year {
+  color: $text-soft;
+}
+
+.selected-paper__action,
+.research-meta__action,
+.selected-paper__links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  padding: 0.34rem 0.66rem;
+  border-radius: 999px;
+  border: 1px solid rgba(159, 208, 255, 0.26);
+  background: rgba(159, 208, 255, 0.08);
+  color: #dfeeff;
+  font-size: 0.79rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.55);
+  line-height: 1;
+  text-decoration: none !important;
   white-space: nowrap;
 }
 
+.selected-paper__action,
+.research-meta__action {
+  margin: 0 0 0 auto;
+}
 
-
-/* Existing rules you already have, unchanged */
-
-
-.research-item {
-  padding: 18px 0;
+.selected-paper__title {
   margin: 0;
-  border-top: 1px solid rgba(255,255,255,0.10);
-  background: transparent;
+  font-size: 1.01rem;
+  line-height: 1.24;
 }
 
-.research-item:first-of-type {
-  border-top: 0;
-  padding-top: 6px;
+.selected-paper__authors {
+  margin: 0.5rem 0 0;
+  color: rgba(232, 232, 232, 0.86);
+  line-height: 1.5;
 }
 
-/* Title */
-.research-item .research-title {
-  margin: 0 0 8px 0;
-  font-size: 1.15em;
-  line-height: 1.25;
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-/* Authors */
-.research-details {
-  margin: 0 0 10px 0;
-  font-size: 0.98em;
-  line-height: 1.55;
-  color: rgba(255,255,255,0.78);
-}
-
-/* Author links */
-.research-details a {
-  color: rgba(255,255,255,0.85);
+.selected-paper__authors a {
+  color: #fff;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.20);
+  border-bottom: 1px solid rgba(159, 208, 255, 0.34);
 }
 
-.research-details a:hover {
-  border-bottom-color: rgba(255,255,255,0.55);
+.selected-paper__authors a:hover {
+  border-bottom-color: rgba(159, 208, 255, 0.72);
 }
 
-/* Links row */
-.research-link {
-  margin: 0 0 10px 0;
+.selected-paper__venue-line {
+  margin: 0.34rem 0 0;
+  color: $accent-gold;
+  font-size: 0.81rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.selected-paper__note {
+  margin: 0.56rem 0 0;
+  line-height: 1.4;
+}
+
+.selected-paper__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0.42rem;
+  margin-top: 0.48rem;
 }
 
-.research-link a {
-  display: inline-block;
-  padding: 6px 10px;
+.selected-paper__action:hover,
+.research-meta__action:hover,
+.selected-paper__links a:hover {
+  border-color: rgba(159, 208, 255, 0.5);
+  background: rgba(159, 208, 255, 0.16);
+}
+
+.research-notation {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1rem;
+  row-gap: 0.35rem;
+  align-items: start;
+  margin: 0 0 1rem;
+  color: $text-muted;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.research-notation--compact {
+  grid-template-columns: 1fr;
+  row-gap: 0.2rem;
+  margin: 0 0 0.9rem;
+  font-size: 0.85rem;
+}
+
+.research-notation--compact .notation-label,
+.research-notation--compact > span:not(.notation-label) {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.research-notation .notation-label {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.research-notation > span:not(.notation-label) {
+  grid-column: 2;
+}
+
+.notation-label {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.auth-marker {
+  margin-right: 0.25rem;
+  font-weight: 700;
+  color: $accent-gold;
+}
+
+@media (max-width: 700px) {
+  .research-notation {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+  }
+
+  .research-notation .notation-label,
+  .research-notation > span:not(.notation-label) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .research-list--scrollable {
+    max-height: 49rem;
+  }
+}
+
+.research-item {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0.78rem 0.9rem;
+}
+
+.research-directory {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.research-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.research-filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.research-filter-label {
+  min-width: 2.7rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.research-filter-chip {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(159, 208, 255, 0.26);
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.85);
+  background: rgba(159, 208, 255, 0.06);
+  color: #dfeeff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.research-filter-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(159, 208, 255, 0.5);
+  background: rgba(159, 208, 255, 0.16);
+}
+
+.research-filter-chip.is-active {
+  border-color: transparent;
+  background: linear-gradient(135deg, #9fd0ff, #dbeeff);
+  color: #172338;
+}
+
+.research-list {
+  display: grid;
+  gap: 0.84rem;
+}
+
+.research-list--scrollable {
+  max-height: 58rem;
+  overflow-y: auto;
+  padding-right: 0.45rem;
+  scrollbar-gutter: stable;
+}
+
+.research-list--scrollable + .research-empty {
+  margin-top: 1rem;
+}
+
+.research-item .research-title {
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+  font-size: 1.15em;
+  line-height: 1.38;
+}
+
+.research-meta,
+.research-meta__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.research-meta {
+  justify-content: space-between;
+  gap: 0.4rem 0.75rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.research-meta__main {
+  gap: 0.4rem 0.75rem;
+  min-width: 0;
+}
+
+.research-meta__id,
+.research-meta__type,
+.research-meta__year {
+  white-space: nowrap;
+}
+
+.research-meta__id {
+  color: $accent-blue;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.research-meta__type {
+  color: $accent-gold;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.research-meta__year {
+  color: $text-soft;
+  font-weight: 700;
+}
+
+.research-meta__link,
+.research-link a {
+  color: $accent-blue;
+  border-bottom: 1px solid rgba(159, 208, 255, 0.34);
   text-decoration: none;
-  font-size: 0.92em;
+  white-space: nowrap;
 }
 
+.research-meta__link:hover,
 .research-link a:hover {
-  background: rgba(255,255,255,0.10);
-  border-color: rgba(255,255,255,0.28);
+  color: #fff;
+  border-bottom-color: rgba(159, 208, 255, 0.72);
 }
 
-/* Venue and extra info
-   OLD: this was the primary venue line
-   NEW: this is now mostly “extra info” lines (workshop, journal note, etc) */
 .conference-info {
-  margin: 6px 0 0 0; /* NEW: add breathing room since it is now a subline */
-  color: rgba(255,255,255,0.65);
-  font-size: 0.95em;
+  align-self: flex-start;
+  margin: 0.45rem 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: $accent-gold;
+  font-size: 0.84rem;
+  font-weight: 700;
   line-height: 1.45;
 }
 
-/* -------------------------
-   Spotlight cleanup
-   ------------------------- */
+.research-details {
+  margin: 0.6rem 0 0;
+  color: rgba(232, 232, 232, 0.86);
+  line-height: 1.65;
+}
 
-/* OLD (you currently had TWO spotlight definitions, one overrides the other)
-.spotlight {
-  color: rgba(255,255,255,0.90);
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.14);
-  padding: 2px 8px;
+.research-details a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(159, 208, 255, 0.34);
+}
+
+.research-details a:hover {
+  border-bottom-color: rgba(159, 208, 255, 0.72);
+}
+
+.research-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  margin: 0.5rem 0 0;
+}
+
+.research-note {
+  margin: 0.7rem 0 0;
+  color: $text-muted;
+  line-height: 1.65;
+}
+
+.spotlight-award {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.7rem;
+}
+
+.spotlight-award__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.78rem;
+  border: 1px solid rgba(242, 192, 120, 0.28);
   border-radius: 999px;
+  background: rgba(242, 192, 120, 0.12);
+  color: $accent-gold;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.spotlight-award__label::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 0.28rem rgba(242, 192, 120, 0.14);
+}
+
+.spotlight-award__detail {
+  color: rgba(232, 232, 232, 0.92);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.research-empty {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border: 1px dashed rgba(159, 208, 255, 0.3);
+  border-radius: 16px;
+  background: rgba(159, 208, 255, 0.04);
+  color: $text-muted;
+}
+
+.research-item[hidden] {
+  display: none !important;
+}
+
+.project-item {
+  margin: 0 0 1rem;
+  padding: 1.05rem 1.1rem;
+}
+
+.project-item hr {
+  display: none;
+}
+
+.project-title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  margin: 0;
+  padding-bottom: 0 !important;
+  border-bottom: 0 !important;
+  font-size: 1.15em;
+  line-height: 1.38;
+}
+
+.project-year {
+  margin-left: 0;
+  color: $text-soft;
+  font-size: 0.88em;
+  font-weight: 700;
+}
+
+.project-link,
+.course-link,
+.project-item .research-link {
+  color: $accent-blue;
+  border-bottom: 1px solid rgba(159, 208, 255, 0.34);
+  text-decoration: none;
+}
+
+.project-link:hover,
+.course-link:hover,
+.project-item .research-link:hover {
+  color: #fff;
+  border-bottom-color: rgba(159, 208, 255, 0.72);
+}
+
+.project-description {
+  margin: 0.8rem 0 0;
+  color: $text-muted;
+  line-height: 1.65;
+}
+
+.badge-advising {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(242, 192, 120, 0.15);
+  color: $accent-gold;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cv-publication-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.cv-publication-item + .cv-publication-item {
+  margin-top: 1rem;
+}
+
+.cv-publication-title-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.cv-publication-id {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem 0.48rem;
+  border-radius: 999px;
+  background: rgba(159, 208, 255, 0.14);
+  color: $accent-blue;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cv-publication-year {
+  color: $text-soft;
+  font-size: 0.92rem;
   font-weight: 600;
 }
 
-.spotlight {
-  color: #ffa000;
-  font-weight: normal;
+.cv-publication-authors,
+.cv-publication-venue,
+.cv-publication-links {
+  margin-top: 0.25rem;
 }
-*/
 
-/* NEW: if you still have old HTML using .spotlight, keep ONE compatible style */
-.spotlight {
-  color: #ffa000;
-  font-weight: 600;
-  background: none;
-  border: 0;
-  padding: 0;
+.cv-publication-authors {
+  color: rgba(232, 232, 232, 0.86);
+  line-height: 1.6;
+}
+
+.cv-publication-authors a,
+.cv-publication-links a {
+  color: #fff;
+}
+
+.cv-publication-venue {
+  color: $text-muted;
 }

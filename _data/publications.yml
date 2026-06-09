@@ -1,0 +1,243 @@
+- id: J2
+  type: journal
+  year: 2026
+  title: AI Alignment From Social Choice Perspectives
+  authors_html: >-
+    <span class="auth-marker">(α)</span>
+    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a>,
+    <a href="https://evi-micha.github.io/" target="_blank" rel="noopener noreferrer">Evi Micha</a>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
+    <a href="https://bschiffer1.github.io/" target="_blank" rel="noopener noreferrer">Ben Schiffer</a>,
+    Itai Shapira,
+    <a href="https://shirleykzhang.github.io/" target="_blank" rel="noopener noreferrer">Shirley Zhang</a>
+  venue: SIGecom Exchanges (under review)
+  links:
+    # No conference or arXiv link available yet, so keep the PDF as the fallback.
+    - label: PDF
+      url: /files/ai-alignment-social-choice-perspectives-sigecom-exchanges-2026.pdf
+  note: Invited survey.
+  home_featured: true
+- id: C10
+  type: conference
+  year: 2026
+  title: How RLHF Amplifies Sycophancy
+  authors_html: >-
+    Itai Shapira,
+    <a href="https://www.gerdusbenade.com/" target="_blank" rel="noopener noreferrer">Gerdus Benadè</a>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>
+  venue: ICML
+  links:
+    - label: ICML 2026
+      url: https://icml.cc/virtual/2026/poster/63414
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2602.01002
+  note:
+  home_featured: true
+- id: C9
+  type: conference
+  year: 2026
+  title: Robust AI Evaluation through Maximal Lotteries
+  authors_html: >-
+    <span class="auth-marker">(r)</span>
+    <a href="https://hadikhalaf.com/" target="_blank" rel="noopener noreferrer">Hadi Khalaf</a>,
+    <a href="https://serenalwang.com/" target="_blank" rel="noopener noreferrer">Serena Lutong Wang</a><sup>†</sup>,
+    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a><sup>†</sup>,
+    Itai Shapira<sup>†</sup>,
+    <a href="https://people.seas.harvard.edu/~flavio/" target="_blank" rel="noopener noreferrer">Flavio P. Calmon</a>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>
+  venue: ICML
+  links:
+    - label: ICML 2026
+      url: https://icml.cc/virtual/2026/poster/61201
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2602.21297
+  note:
+  home_featured: true
+- id: C8
+  type: conference
+  year: 2026
+  title: Incentives in Federated Learning with Heterogeneous Agents
+  authors_html: >-
+    <span class="auth-marker">(α)</span>
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
+    <a href="https://sites.google.com/view/hanshao/home" target="_blank" rel="noopener noreferrer">Han Shao</a>,
+    Itai Shapira
+  venue: ICLR
+  links:
+    - label: ICLR 2026
+      url: https://iclr.cc/virtual/2026/poster/10009829
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2509.21612
+  note:
+  home_featured: false
+- id: J1
+  type: journal
+  year: 2026
+  title: Generative Social Choice
+  authors_html: >-
+    <span class="auth-marker">(α)</span>
+    <a href="https://sara-fish.github.io/" target="_blank" rel="noopener noreferrer">Sara Fish</a>,
+    <a href="https://paulgoelz.de/" target="_blank" rel="noopener noreferrer">Paul Gölz</a>,
+    <a href="https://parkes.seas.harvard.edu/" target="_blank" rel="noopener noreferrer">David C. Parkes</a>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
+    <a href="https://gilirusak.github.io/" target="_blank" rel="noopener noreferrer">Gili Rusak</a>,
+    Itai Shapira,
+    <a href="https://scholar.google.com/citations?user=7EWrVYIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Manuel Wüthrich</a>
+  venue: Journal of the ACM
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/2309.01291
+    # - label: OpenAI blog
+    #   url: https://openai.com/blog/democratic-inputs-to-ai-grant-program-update
+    # - label: Talk
+    #   url: https://www.youtube.com/watch?v=wS8YgEiXWOY
+  note: 73(2):1-52. Conference version at EC 2024.
+  home_featured: false
+- id: C7
+  type: conference
+  year: 2025
+  title: Pairwise Calibrated Rewards for Pluralistic Alignment
+  authors_html: >-
+    <span class="auth-marker">(α)</span>
+    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a>,
+    <a href="https://evi-micha.github.io/" target="_blank" rel="noopener noreferrer">Evi Micha</a>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
+    Itai Shapira
+  venue: NeurIPS
+  links:
+    - label: NeurIPS 2025
+      url: https://neurips.cc/virtual/2025/loc/san-diego/poster/116974
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2506.06298
+  note:
+  home_featured: true
+- id: C6
+  type: conference
+  year: 2025
+  title: "SOAP: Improving and Stabilizing Shampoo using Adam"
+  authors_html: >-
+    <a href="https://nikhilvyas.github.io/" target="_blank" rel="noopener noreferrer">Nikhil Vyas</a><sup>†</sup>,
+    <a href="https://depenm.github.io/" target="_blank" rel="noopener noreferrer">Depen Morwani</a><sup>†</sup>,
+    <a href="https://rosieyzh.github.io/" target="_blank" rel="noopener noreferrer">Rosie Zhao</a>,
+    Itai Shapira,
+    <a href="https://davidbrandfonbrener.github.io/" target="_blank" rel="noopener noreferrer">David Brandfonbrener</a>,
+    <a href="https://lucasjanson.fas.harvard.edu/" target="_blank" rel="noopener noreferrer">Lucas Janson</a>,
+    <a href="https://shamulent.github.io/" target="_blank" rel="noopener noreferrer">Sham Kakade</a>
+  venue: ICLR
+  links:
+    - label: ICLR 2025
+      url: https://iclr.cc/virtual/2025/poster/30183
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2409.11321
+    # - label: Tweet
+    #   url: https://x.com/ShamKakade6/status/1836476197968187778
+  note:
+  home_featured: false
+- id: C5
+  type: conference
+  year: 2025
+  title: A New Perspective on Shampoo’s Preconditioner
+  authors_html: >-
+    <span class="auth-marker">(r)</span>
+    <a href="https://depenm.github.io/" target="_blank" rel="noopener noreferrer">Depen Morwani</a><sup>†</sup>,
+    Itai Shapira<sup>†</sup>,
+    <a href="https://nikhilvyas.github.io/" target="_blank" rel="noopener noreferrer">Nikhil Vyas</a><sup>†</sup>,
+    <a href="https://www.eranmalach.com/" target="_blank" rel="noopener noreferrer">Eran Malach</a>,
+    <a href="https://shamulent.github.io/" target="_blank" rel="noopener noreferrer">Sham M. Kakade</a>,
+    <a href="https://lucasjanson.fas.harvard.edu/" target="_blank" rel="noopener noreferrer">Lucas Janson</a>
+  venue: ICLR
+  links:
+    - label: ICLR 2025
+      url: https://iclr.cc/virtual/2025/poster/29069
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2406.17748
+    # - label: Tweet
+    #   url: https://x.com/ShamKakade6/status/1805987809645474268
+  note:
+  home_featured: false
+- id: C4
+  type: conference
+  year: 2024
+  title: Axioms for AI Alignment from Human Feedback
+  authors_html: >-
+    <span class="auth-marker">(α)</span>
+    <a href="https://luisegehaijing.github.io/" target="_blank" rel="noopener noreferrer">Luise Ge</a>,
+    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a>,
+    <a href="https://evi-micha.github.io/" target="_blank" rel="noopener noreferrer">Evi Micha</a>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
+    Itai Shapira,
+    <a href="https://vorobeychik.com/" target="_blank" rel="noopener noreferrer">Yevgeniy Vorobeychik</a>,
+    <a href="https://jlwu002.github.io/" target="_blank" rel="noopener noreferrer">Junlin Wu</a>
+  venue: NeurIPS
+  links:
+    - label: NeurIPS 2024
+      url: https://neurips.cc/virtual/2024/poster/94386
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2405.14758
+  note: >-
+    <span class="spotlight-award">
+      <span class="spotlight-award__label">NeurIPS Spotlight</span>
+      <span class="spotlight-award__detail">Top 2.1% of submissions</span>
+    </span>
+  home_featured: false
+- id: C3
+  type: conference
+  year: 2024
+  title: Learning Social Welfare Functions
+  authors_html: >-
+    <span class="auth-marker">(r)</span>
+    Kanad Shrikar Pardeshi<sup>†</sup>,
+    Itai Shapira<sup>†</sup>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
+    <a href="https://www.cs.cmu.edu/~aarti/" target="_blank" rel="noopener noreferrer">Aarti Singh</a>
+  venue: NeurIPS
+  links:
+    - label: NeurIPS 2024
+      url: https://neurips.cc/virtual/2024/poster/96456
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2405.17700
+  note: >-
+    <span class="spotlight-award">
+      <span class="spotlight-award__label">NeurIPS Spotlight</span>
+      <span class="spotlight-award__detail">Top 2.1% of submissions</span>
+    </span>
+  home_featured: false
+- id: C2
+  type: conference
+  year: 2024
+  title: Bias Detection Via Signaling
+  authors_html: >-
+    <span class="auth-marker">(α)</span>
+    <a href="https://yiling.seas.harvard.edu/" target="_blank" rel="noopener noreferrer">Yiling Chen</a>,
+    <a href="https://tao-l.github.io/" target="_blank" rel="noopener noreferrer">Tao Lin</a>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
+    <a href="https://www.stat.cmu.edu/~aramdas/" target="_blank" rel="noopener noreferrer">Aaditya Ramdas</a>,
+    Itai Shapira
+  venue: NeurIPS
+  links:
+    - label: NeurIPS 2024
+      url: https://neurips.cc/virtual/2024/poster/96686
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2405.17694
+  note:
+  home_featured: false
+- id: C1
+  type: conference
+  year: 2024
+  title: Optimal Engagement-Diversity Tradeoffs in Social Media
+  authors_html: >-
+    <span class="auth-marker">(α)</span>
+    <a href="https://scholar.google.com/citations?user=zcNj2LsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Fabian Baumann</a>,
+    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
+    <a href="https://www.rahwan.me/" target="_blank" rel="noopener noreferrer">Iyad Rahwan</a>,
+    Itai Shapira,
+    <a href="https://scholar.google.com/citations?user=7EWrVYIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Manuel Wüthrich</a>
+  venue: The ACM Web Conference (WWW)
+  links:
+    - label: WWW'24
+      url: https://dl.acm.org/doi/abs/10.1145/3589334.3645713
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2303.03549
+  note:
+  home_featured: false

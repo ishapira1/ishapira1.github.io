@@ -1,227 +1,201 @@
+{% assign featured_only = false %}
+{% if include.featured_only == true or include.featured_only == "true" %}
+  {% assign featured_only = true %}
+{% endif %}
 
-<span class="notation-label">Notation:</span>
-   <span class="auth-marker">(α)</span> authors listed alphabetically
-   <span class="auth-marker">(r)</span> equal contribution with randomized order among authors marked with †
+{% assign compact = false %}
+{% if include.compact == true or include.compact == "true" %}
+  {% assign compact = true %}
+{% endif %}
 
-<!-- CHANGE (2026-02-01): Year shown in title via <span class="research-title-year">YYYY</span>. -->
-<!-- CHANGE (2026-02-01): Link labels no brackets (e.g., "[PDF]" -> "PDF"). -->
+{% assign scrollable = false %}
+{% if include.scrollable == true or include.scrollable == "true" %}
+  {% assign scrollable = true %}
+{% endif %}
 
-<div class="research-item">
-  <h2 class="research-title">AI Alignment From Social Choice Perspectives <span class="research-title-year">2026</span></h2>
-  <p class="research-details">
-    <span class="auth-marker">(α)</span>
-    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a>,
-    <a href="https://evi-micha.github.io/" target="_blank" rel="noopener noreferrer">Evi Micha</a>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
-    <a href="https://bschiffer1.github.io/" target="_blank" rel="noopener noreferrer">Ben Schiffer</a>,
-    Itai Shapira,
-    <a href="https://shirleykzhang.github.io/" target="_blank" rel="noopener noreferrer">Shirley Zhang</a>
-  </p>
-  <p class="research-link">
-    <a href="{{ base_path }}/files/ai-alignment-social-choice-perspectives-sigecom-exchanges-2026.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-  </p>
-  <p class="conference-info">Under review for SIGecom Exchanges • Invited survey</p>
+{% assign show_filters = true %}
+{% if include.show_filters == false or include.show_filters == "false" %}
+  {% assign show_filters = false %}
+{% endif %}
+
+{% assign show_notation = true %}
+{% if include.show_notation == false or include.show_notation == "false" %}
+  {% assign show_notation = false %}
+{% endif %}
+
+{% assign publications = site.data.publications %}
+{% if featured_only %}
+  {% assign featured_publications = site.data.publications | where_exp: "item", "item.home_featured == true" %}
+  {% if featured_publications.size > 0 %}
+    {% assign publications = featured_publications %}
+  {% endif %}
+{% endif %}
+
+{% if include.limit %}
+  {% assign publications = publications | slice: 0, include.limit %}
+{% endif %}
+
+{% assign type_values = site.data.publications | map: "type" | uniq %}
+{% assign year_values = site.data.publications | map: "year" | uniq %}
+{% assign ordered_types = "conference,journal,working_paper,survey" | split: "," %}
+
+{% if compact %}
+  {% if show_notation %}
+    <div class="research-notation research-notation--compact">
+      <span class="notation-label">Notation:</span>
+      <span><span class="auth-marker">(α)</span> authors listed alphabetically</span>
+      <span><span class="auth-marker">(r)</span> equal contribution with randomized order among authors marked with †</span>
+    </div>
+  {% endif %}
+  <div class="selected-paper-list{% if scrollable %} selected-paper-list--scrollable{% endif %}">
+    {% for publication in publications %}
+      {% capture publication_type_label %}
+        {% case publication.type %}
+          {% when "conference" %}Conference
+          {% when "journal" %}Journal
+          {% when "working_paper" %}Working paper
+          {% when "survey" %}Survey
+          {% else %}{{ publication.type | replace: "_", " " | capitalize }}
+        {% endcase %}
+      {% endcapture %}
+      {% assign venue_display = publication.venue %}
+      {% assign publication_year = publication.year | append: "" %}
+      {% if publication.type == "conference" and publication.venue and publication_year != "" %}
+        {% unless publication.venue contains publication_year %}
+          {% assign venue_display = publication.venue | append: " " | append: publication_year %}
+        {% endunless %}
+      {% endif %}
+      {% assign primary_link = publication.links | first %}
+      <article class="selected-paper">
+        <div class="selected-paper__meta">
+          <div class="selected-paper__meta-main">
+            <span class="selected-paper__id">{{ publication.id }}</span>
+            <span class="selected-paper__venue">{{ publication_type_label | strip }}</span>
+            <span class="selected-paper__year">{{ publication.year }}</span>
+          </div>
+          {% if primary_link %}
+            {% assign primary_link_href = primary_link.url %}
+            {% unless primary_link.url contains "://" %}
+              {% assign primary_link_href = base_path | append: primary_link.url %}
+            {% endunless %}
+            <a class="selected-paper__action" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">Paper</a>
+          {% endif %}
+        </div>
+        <h3 class="selected-paper__title">{{ publication.title }}</h3>
+        <p class="selected-paper__authors">{{ publication.authors_html }}</p>
+        <p class="selected-paper__venue-line">{{ venue_display }}</p>
+        {% if publication.note %}
+          <p class="selected-paper__note">{{ publication.note }}</p>
+        {% endif %}
+        {% if publication.links.size > 1 %}
+          <div class="selected-paper__links">
+            {% for link in publication.links offset:1 %}
+              {% assign link_href = link.url %}
+              {% unless link.url contains "://" %}
+                {% assign link_href = base_path | append: link.url %}
+              {% endunless %}
+              <a href="{{ link_href }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+{% else %}
+{% if show_notation %}
+<div class="research-notation">
+  <span class="notation-label">Notation:</span>
+  <span><span class="auth-marker">(α)</span> authors listed alphabetically</span>
+  <span><span class="auth-marker">(r)</span> equal contribution with randomized order among authors marked with †</span>
 </div>
+{% endif %}
 
-<div class="research-item">
-  <h2 class="research-title">How RLHF Amplifies Sycophancy <span class="research-title-year">2026</span></h2>
-  <p class="research-details">
-    Itai Shapira,
-    <a href="https://www.gerdusbenade.com/" target="_blank" rel="noopener noreferrer">Gerdus Benadè</a>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2602.01002" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://icml.cc/virtual/2026/poster/63414" target="_blank" rel="noopener noreferrer">ICML 2026 page</a>
-  </p>
-  <p class="conference-info">ICML 2026</p>
+<div class="research-directory" data-publication-index>
+  {% if show_filters %}
+    <div class="research-filters">
+      <div class="research-filter-group" aria-label="Filter publications by type">
+        <span class="research-filter-label">Type</span>
+        <button class="research-filter-chip is-active" type="button" data-filter-type="all" aria-pressed="true">All</button>
+        {% for type_value in ordered_types %}
+          {% if type_values contains type_value %}
+            {% capture type_label %}
+              {% case type_value %}
+                {% when "conference" %}Conference
+                {% when "journal" %}Journal
+                {% when "working_paper" %}Working paper
+                {% when "survey" %}Survey
+                {% else %}{{ type_value | replace: "_", " " | capitalize }}
+              {% endcase %}
+            {% endcapture %}
+            <button class="research-filter-chip" type="button" data-filter-type="{{ type_value }}" aria-pressed="false">{{ type_label | strip }}</button>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="research-filter-group" aria-label="Filter publications by year">
+        <span class="research-filter-label">Year</span>
+        <button class="research-filter-chip is-active" type="button" data-filter-year="all" aria-pressed="true">All</button>
+        {% for year_value in year_values %}
+          <button class="research-filter-chip" type="button" data-filter-year="{{ year_value }}" aria-pressed="false">{{ year_value }}</button>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="research-list{% if scrollable %} research-list--scrollable{% endif %}">
+    {% for publication in publications %}
+      {% capture publication_type_label %}
+        {% case publication.type %}
+          {% when "conference" %}Conference
+          {% when "journal" %}Journal
+          {% when "working_paper" %}Working paper
+          {% when "survey" %}Survey
+          {% else %}{{ publication.type | replace: "_", " " | capitalize }}
+        {% endcase %}
+      {% endcapture %}
+      {% assign venue_display = publication.venue %}
+      {% assign publication_year = publication.year | append: "" %}
+      {% if publication.type == "conference" and publication.venue and publication_year != "" %}
+        {% unless publication.venue contains publication_year %}
+          {% assign venue_display = publication.venue | append: " " | append: publication_year %}
+        {% endunless %}
+      {% endif %}
+      {% assign primary_link = publication.links | first %}
+      <article class="research-item selected-paper" data-publication-item data-type="{{ publication.type }}" data-year="{{ publication.year }}">
+        <div class="selected-paper__meta">
+          <div class="selected-paper__meta-main">
+            <span class="selected-paper__id">{{ publication.id }}</span>
+            <span class="selected-paper__venue">{{ publication_type_label | strip }}</span>
+            <span class="selected-paper__year">{{ publication.year }}</span>
+          </div>
+          {% if primary_link %}
+            {% assign primary_link_href = primary_link.url %}
+            {% unless primary_link.url contains "://" %}
+              {% assign primary_link_href = base_path | append: primary_link.url %}
+            {% endunless %}
+            <a class="selected-paper__action" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">Paper</a>
+          {% endif %}
+        </div>
+        <h2 class="selected-paper__title">{{ publication.title }}</h2>
+        <p class="selected-paper__authors">{{ publication.authors_html }}</p>
+        <p class="selected-paper__venue-line">{{ venue_display }}</p>
+        {% if publication.links.size > 1 %}
+          <div class="selected-paper__links">
+            {% for link in publication.links offset:1 %}
+              {% assign link_href = link.url %}
+              {% unless link.url contains "://" %}
+                {% assign link_href = base_path | append: link.url %}
+              {% endunless %}
+              <a href="{{ link_href }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if publication.note %}
+          <p class="selected-paper__note">{{ publication.note }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+
+  <p class="research-empty" data-publication-empty hidden>No publications match the current filters.</p>
 </div>
-
-<div class="research-item">
-  <h2 class="research-title">Robust AI Evaluation through Maximal Lotteries <span class="research-title-year">2026</span></h2>
-  <p class="research-details">
-     <span class="auth-marker">(r)</span>
-    <a href="https://hadikhalaf.com/" target="_blank" rel="noopener noreferrer">Hadi Khalaf</a>,
-    <a href="https://serenalwang.com/" target="_blank" rel="noopener noreferrer">Serena Lutong Wang</a><sup>†</sup>,
-    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a><sup>†</sup>,
-    Itai Shapira<sup>†</sup>,
-    <a href="https://people.seas.harvard.edu/~flavio/" target="_blank" rel="noopener noreferrer">Flavio P. Calmon</a>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2602.21297" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://icml.cc/virtual/2026/poster/61201" target="_blank" rel="noopener noreferrer">ICML 2026 page</a>
-  </p>
-  <p class="conference-info">ICML 2026</p>
-</div>
-
-
-<div class="research-item">
-  <h2 class="research-title">Incentives in Federated Learning with Heterogeneous Agents <span class="research-title-year">2026</span></h2>
-  <p class="research-details">
-     <span class="auth-marker">(α)</span>
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
-    <a href="https://sites.google.com/view/hanshao/home" target="_blank" rel="noopener noreferrer">Han Shao</a>,
-    Itai Shapira
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2509.21612" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://iclr.cc/virtual/2026/poster/10009829" target="_blank" rel="noopener noreferrer">ICLR 2026 page</a>
-  </p>
-  <p class="conference-info">ICLR 2026</p>
-</div>
-
-
-<div class="research-item">
-  <h2 class="research-title">Pairwise Calibrated Rewards for Pluralistic Alignment <span class="research-title-year">2025</span></h2>
-  <p class="research-details">
-     <span class="auth-marker">(α)</span>
-    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a>,
-    <a href="https://evi-micha.github.io/" target="_blank" rel="noopener noreferrer">Evi Micha</a>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
-    Itai Shapira
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2506.06298" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/116974" target="_blank" rel="noopener noreferrer">NeurIPS 2025 page</a>
-  </p>
-  <p class="conference-info">NeurIPS 2025</p>
-<!--  <p class="conference-info">-->
-<!--    <a href="https://www.cmu.edu/ai-sdm/research/human-ai-workshop/2025-programming/index.html" target="_blank" rel="noopener noreferrer">-->
-<!--      2025 NSF AI-SDM Workshop on Human-AI Complementarity for Decision Making-->
-<!--    </a>-->
-<!--    <strong><span class="spotlight">(Spotlight)</span></strong>-->
-<!--  </p>-->
-</div>
-
-
-
-
-<div class="research-item">
-  <h2 class="research-title">SOAP: Improving and Stabilizing Shampoo using Adam <span class="research-title-year">2025</span></h2>
-  <p class="research-details">
-    <a href="https://nikhilvyas.github.io/" target="_blank" rel="noopener noreferrer">Nikhil Vyas</a><sup>†</sup>,
-    <a href="https://depenm.github.io/" target="_blank" rel="noopener noreferrer">Depen Morwani</a><sup>†</sup>,
-    <a href="https://rosieyzh.github.io/" target="_blank" rel="noopener noreferrer">Rosie Zhao</a>,
-    Itai Shapira,
-    <a href="https://davidbrandfonbrener.github.io/" target="_blank" rel="noopener noreferrer">David Brandfonbrener</a>,
-    <a href="https://lucasjanson.fas.harvard.edu/" target="_blank" rel="noopener noreferrer">Lucas Janson</a>,
-    <a href="https://shamulent.github.io/" target="_blank" rel="noopener noreferrer">Sham Kakade</a>
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2409.11321" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://x.com/ShamKakade6/status/1836476197968187778" target="_blank" rel="noopener noreferrer">Tweet</a>
-    <a href="https://iclr.cc/virtual/2025/poster/30183" target="_blank" rel="noopener noreferrer">ICLR 2025 page</a>
-  </p>
-  <p class="conference-info">ICLR 2025</p>
-</div>
-
-<div class="research-item">
-  <h2 class="research-title">A New Perspective on Shampoo’s Preconditioner <span class="research-title-year">2025</span></h2>
-  <p class="research-details">
-     <span class="auth-marker">(r)</span>
-    <a href="https://depenm.github.io/" target="_blank" rel="noopener noreferrer">Depen Morwani</a><sup>†</sup>,
-    Itai Shapira<sup>†</sup>,
-    <a href="https://nikhilvyas.github.io/" target="_blank" rel="noopener noreferrer">Nikhil Vyas</a><sup>†</sup>,
-    <a href="https://www.eranmalach.com/" target="_blank" rel="noopener noreferrer">Eran Malach</a>,
-    <a href="https://shamulent.github.io/" target="_blank" rel="noopener noreferrer">Sham M. Kakade</a>,
-    <a href="https://lucasjanson.fas.harvard.edu/" target="_blank" rel="noopener noreferrer">Lucas Janson</a>
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2406.17748" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://x.com/ShamKakade6/status/1805987809645474268" target="_blank" rel="noopener noreferrer">Tweet</a>
-    <a href="https://iclr.cc/virtual/2025/poster/29069" target="_blank" rel="noopener noreferrer">ICLR 2025 page</a>
-  </p>
-  <p class="conference-info">ICLR 2025</p>
-</div>
-
-<div class="research-item">
-  <h2 class="research-title">Axioms for AI Alignment from Human Feedback <span class="research-title-year">2024</span></h2>
-  <p class="research-details">
-     <span class="auth-marker">(α)</span>
-    <a href="https://luisegehaijing.github.io/" target="_blank" rel="noopener noreferrer">Luise Ge</a>,
-    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a>,
-    <a href="https://evi-micha.github.io/" target="_blank" rel="noopener noreferrer">Evi Micha</a>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
-    Itai Shapira,
-    <a href="https://vorobeychik.com/" target="_blank" rel="noopener noreferrer">Yevgeniy Vorobeychik</a>,
-    <a href="https://jlwu002.github.io/" target="_blank" rel="noopener noreferrer">Junlin Wu</a>
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2405.14758" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://neurips.cc/virtual/2024/poster/94386" target="_blank" rel="noopener noreferrer">NeurIPS 2024 page</a>
-  </p>
-  <p class="conference-info">NeurIPS 2024 <strong><span class="spotlight">(Spotlight - 2.1% of submissions)</span></strong></p>
-</div>
-
-<div class="research-item">
-  <h2 class="research-title">Learning Social Welfare Functions <span class="research-title-year">2024</span></h2>
-  <p class="research-details">
-     <span class="auth-marker">(r)</span>
-    Kanad Shrikar Pardeshi<sup>†</sup>,
-    Itai Shapira<sup>†</sup>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
-    <a href="https://www.cs.cmu.edu/~aarti/" target="_blank" rel="noopener noreferrer">Aarti Singh</a>
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2405.17700" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://neurips.cc/virtual/2024/poster/96456" target="_blank" rel="noopener noreferrer">NeurIPS 2024 page</a>
-  </p>
-  <p class="conference-info">NeurIPS 2024 <strong><span class="spotlight">(Spotlight - 2.1% of submissions)</span></strong></p>
-</div>
-
-<div class="research-item">
-  <h2 class="research-title">Bias Detection Via Signaling <span class="research-title-year">2024</span></h2>
-  <p class="research-details">
-     <span class="auth-marker">(α)</span>
-    <a href="https://yiling.seas.harvard.edu/" target="_blank" rel="noopener noreferrer">Yiling Chen</a>,
-    <a href="https://tao-l.github.io/" target="_blank" rel="noopener noreferrer">Tao Lin</a>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
-    <a href="https://www.stat.cmu.edu/~aramdas/" target="_blank" rel="noopener noreferrer">Aaditya Ramdas</a>,
-    Itai Shapira
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2405.17694" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://neurips.cc/virtual/2024/poster/96686" target="_blank" rel="noopener noreferrer">NeurIPS 2024 page</a>
-  </p>
-  <p class="conference-info">NeurIPS 2024</p>
-</div>
-
-<div class="research-item">
-  <h2 class="research-title">Generative Social Choice <span class="research-title-year">2024</span></h2>
-  <p class="research-details">
-     <span class="auth-marker">(α)</span>
-    <a href="https://sara-fish.github.io/" target="_blank" rel="noopener noreferrer">Sara Fish</a>,
-    <a href="https://paulgoelz.de/" target="_blank" rel="noopener noreferrer">Paul Gölz</a>,
-    <a href="https://parkes.seas.harvard.edu/" target="_blank" rel="noopener noreferrer">David C. Parkes</a>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
-    <a href="https://gilirusak.github.io/" target="_blank" rel="noopener noreferrer">Gili Rusak</a>,
-    Itai Shapira,
-    <a href="https://scholar.google.com/citations?user=7EWrVYIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Manuel Wüthrich</a>
-  </p>
-  <p class="research-link">
-    <a href="https://arxiv.org/abs/2309.01291" target="_blank" rel="noopener noreferrer">arXiv</a>
-    <a href="https://openai.com/blog/democratic-inputs-to-ai-grant-program-update" target="_blank" rel="noopener noreferrer">OpenAI blog</a>
-    <a href="https://www.youtube.com/watch?v=wS8YgEiXWOY" target="_blank" rel="noopener noreferrer">Talk</a>
-  </p>
-  <p class="conference-info">EC 2024 • Accepted to Journal of the ACM (JACM), Jan 2026.</p>
-</div>
-
-
-<div class="research-item">
-  <h2 class="research-title">Optimal Engagement-Diversity Tradeoffs in Social Media <span class="research-title-year">2024</span></h2>
-  <p class="research-details">
-     <span class="auth-marker">(α)</span>
-    <a href="https://scholar.google.com/citations?user=zcNj2LsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Fabian Baumann</a>,
-    <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
-    <a href="https://www.rahwan.me/" target="_blank" rel="noopener noreferrer">Iyad Rahwan</a>,
-    Itai Shapira,
-    <a href="https://scholar.google.com/citations?user=7EWrVYIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Manuel Wüthrich</a>
-  </p>
-  <p class="research-link">
-    <a href="https://dl.acm.org/doi/abs/10.1145/3589334.3645713" target="_blank" rel="noopener noreferrer">WWW'24</a>
-    <a href="https://arxiv.org/abs/2303.03549" target="_blank" rel="noopener noreferrer">arXiv</a>
-  </p>
-  <p class="conference-info">2024 ACM Web Conference</p>
-</div>
+{% endif %}

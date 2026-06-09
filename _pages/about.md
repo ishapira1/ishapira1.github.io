@@ -3,13 +3,14 @@ permalink: /
 title: "Itai Shapira"
 excerpt: "About me"
 author_profile: true
+hide_title: true
 redirect_from:
   - /about/
   - /about.html
 ---
 
 <div class="about-bio">
-  <p>
+  <p class="home-hero__lede">
     I'm a CS PhD student at Harvard. I am privileged to be advised by
     <a href="http://procaccia.info/" target="_blank" rel="noopener noreferrer">Prof. Ariel D. Procaccia</a>.
   </p>
@@ -20,11 +21,18 @@ redirect_from:
   </p>
 </div>
 
-<!-- Conference note -->
 <div class="about-note">
   <span class="about-note-label">Update</span>
   I’ll be at ICML in Seoul this July. If you’re attending, feel free to reach out.
 </div>
 
-<h2>Research</h2>
-{% include research.html %}
+<section class="home-section home-section--research">
+  <div class="home-section-head">
+    <div>
+      <p class="home-section-kicker">Recent work</p>
+      <h2>Research</h2>
+    </div>
+    <a class="home-view-all" href="/research/">See full research list</a>
+  </div>
+  {% include research.html compact=true scrollable=true show_filters=false show_notation=true %}
+</section>
