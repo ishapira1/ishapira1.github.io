@@ -34,6 +34,15 @@
   }
 }
 
+.page--home {
+  @include breakpoint($large) {
+    width: 78.3050847458%;
+    margin-right: 0;
+    padding-left: 4.2372881356%;
+    padding-right: 12%;
+  }
+}
+
 .project-grid {
   display: flex;
   flex-wrap: wrap;

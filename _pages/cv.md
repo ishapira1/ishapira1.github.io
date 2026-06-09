@@ -38,9 +38,28 @@ Skills
 
 Publications
 ======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+<ul class="cv-publication-list">
+  {% for publication in site.data.publications %}
+    <li class="cv-publication-item">
+      <div class="cv-publication-title-row">
+        <span class="cv-publication-id">{{ publication.id }}</span>
+        <strong>{{ publication.title }}</strong>
+        <span class="cv-publication-year">{{ publication.year }}</span>
+      </div>
+      <div class="cv-publication-authors">{{ publication.authors_html }}</div>
+      <div class="cv-publication-venue">{{ publication.venue }}{% if publication.note %} • {{ publication.note }}{% endif %}</div>
+      <div class="cv-publication-links">
+        {% for link in publication.links %}
+          {% assign link_href = link.url %}
+          {% unless link.url contains "://" %}
+            {% assign link_href = base_path | append: link.url %}
+          {% endunless %}
+          <a href="{{ link_href }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}
+        {% endfor %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>
   
 Talks
 ======

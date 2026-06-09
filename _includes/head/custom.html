@@ -32,8 +32,40 @@
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="msapplication-TileImage" content="{{ base_path }}/images/mstile-144x144.png?v=M44lzPylqQ">
 <meta name="msapplication-config" content="{{ base_path }}/images/browserconfig.xml?v=M44lzPylqQ">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f5f7fb" id="theme-color-meta">
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
+
+<script>
+  (function() {
+    var storageKey = "theme-preference";
+    var lightThemeColor = "#f5f7fb";
+    var darkThemeColor = "#272935";
+    var root = document.documentElement;
+    var savedTheme = null;
+
+    try {
+      savedTheme = window.localStorage.getItem(storageKey);
+    } catch (error) {
+      savedTheme = null;
+    }
+
+    if (savedTheme === "light" || savedTheme === "dark") {
+      root.setAttribute("data-theme", savedTheme);
+    } else {
+      root.removeAttribute("data-theme");
+    }
+
+    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var effectiveTheme = savedTheme === "light" || savedTheme === "dark"
+      ? savedTheme
+      : (prefersDark ? "dark" : "light");
+    var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute("content", effectiveTheme === "dark" ? darkThemeColor : lightThemeColor);
+    }
+  })();
+</script>
 
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
 <script type="text/x-mathjax-config">

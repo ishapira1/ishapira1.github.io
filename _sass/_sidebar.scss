@@ -50,6 +50,28 @@
   }
 }
 
+.sidebar--home {
+  .author__content,
+  .author__urls-wrapper {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .author__content {
+    text-align: center;
+  }
+
+  @include breakpoint($large) {
+    width: 20%;
+
+    .author__content {
+      text-align: left;
+    }
+  }
+}
+
 .sidebar__right {
   margin-bottom: 1em;
 
@@ -96,8 +118,19 @@
 }
 
 .author__avatar--home {
+  display: block;
+  width: 180px;
+  max-width: 100%;
+  margin: 0 auto 1rem;
+
+  @include breakpoint($large) {
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+
   img {
-    max-width: 215px;
+    width: 100%;
+    max-width: none;
   }
 }
 
