@@ -24,27 +24,6 @@ redirect_from:
   </div>
 </section>
 
-<section class="home-section">
-  <div class="about-note">
-    <span class="about-note-label">Affiliation</span>
-    Harvard University, Computer Science PhD
-  </div>
-  <div class="about-note">
-    <span class="about-note-label">Research interests</span>
-    Pluralistic AI alignment, algorithmic social choice, optimization, and multi-agent systems
-  </div>
-  <div class="about-note">
-    <span class="about-note-label">Profiles</span>
-    <a href="https://scholar.google.com/citations?user=JOQXRbIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-    ·
-    <a href="https://www.linkedin.com/in/itai-shapira-54583a2ab/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    ·
-    <a href="https://github.com/ishapira1" target="_blank" rel="noopener noreferrer">GitHub</a>
-    ·
-    <a href="https://x.com/IShapira1" target="_blank" rel="noopener noreferrer">X</a>
-  </div>
-</section>
-
 <div class="about-note">
   <span class="about-note-label">Update</span>
   I’ll be at ICML 2026 in Seoul this July. If you’re attending, feel free to reach out.
