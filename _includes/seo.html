@@ -1,5 +1,16 @@
 {% include base_path %}
 
+{% assign default_og_image = site.og_image %}
+{% if default_og_image %}
+  {% unless default_og_image contains "://" %}
+    {% if default_og_image contains "/" %}
+      {% assign default_og_image = default_og_image | prepend: base_path %}
+    {% else %}
+      {% assign default_og_image = default_og_image | prepend: "/images/" | prepend: base_path %}
+    {% endif %}
+  {% endunless %}
+{% endif %}
+
 <!-- begin SEO -->
 {% if site.url %}
   {% assign seo_url = site.url | append: site.baseurl %}
@@ -70,8 +81,8 @@
     <meta name="twitter:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path }}{% endif %}">
   {% else %}
     <meta name="twitter:card" content="summary">
-    {% if site.og_image %}
-      <meta name="twitter:image" content="{{ site.og_image | prepend: "/images/" | prepend: base_path }}">
+    {% if default_og_image %}
+      <meta name="twitter:image" content="{{ default_og_image }}">
     {% endif %}
   {% endif %}
 
@@ -108,13 +119,13 @@
   <link rel="next" href="{{ paginator.next_page_path | prepend: seo_url }}">
 {% endif %}
 
-{% if site.og_image %}
+{% if default_og_image and site.social.type != "Person" %}
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "Organization",
       "url": {{ seo_url | jsonify }},
-      "logo": {{ site.og_image | prepend: "/images/" | prepend: base_path | jsonify }}
+      "logo": {{ default_og_image | jsonify }}
     }
   </script>
 {% endif %}

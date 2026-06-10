@@ -2,6 +2,7 @@
 layout: archive
 title: "CV"
 permalink: /cv/
+description: "Curriculum vitae, publications, and background for Itai Shapira."
 author_profile: true
 redirect_from:
   - /resume
@@ -9,32 +10,20 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+This page summarizes my background and research. For the full document, use the PDF version of my CV:
 
-Work experience
-======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+<p><a href="{{ base_path }}/files/resume.pdf" target="_blank" rel="noopener noreferrer"><strong>Download CV (PDF)</strong></a></p>
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
+Research interests
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+
+Pluralistic AI alignment, algorithmic social choice, optimization, and multi-agent systems.
+
+Current affiliation
+======
+
+PhD Candidate in Computer Science at Harvard University, advised by
+<a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>.
 
 Publications
 ======
@@ -60,19 +49,11 @@ Publications
     </li>
   {% endfor %}
 </ul>
-  
-Talks
+
+Selected online profiles
 ======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+
+* <a href="https://scholar.google.com/citations?user=JOQXRbIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+* <a href="https://www.linkedin.com/in/itai-shapira-54583a2ab/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+* <a href="https://github.com/ishapira1" target="_blank" rel="noopener noreferrer">GitHub</a>
+* <a href="https://x.com/IShapira1" target="_blank" rel="noopener noreferrer">X</a>

@@ -1,21 +1,48 @@
+{% assign site_root = site.url | append: site.baseurl %}
+{% assign avatar_url = site.author.avatar %}
+{% unless avatar_url contains "://" %}
+  {% unless avatar_url contains "/" %}
+    {% assign avatar_url = "/images/" | append: avatar_url %}
+  {% endunless %}
+  {% assign avatar_url = site_root | append: avatar_url %}
+{% endunless %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["Person", "WebSite"],
-
-  "name": "Itai Shapira",
-  "url": "https://www.itai-shapira.com/",
-  "jobTitle": "PhD Candidate, Computer Science",
-  "affiliation": {
-    "@type": "CollegeOrUniversity",
-    "name": "Harvard University"
-  },
-
-  "sameAs": [
-    "https://www.linkedin.com/in/itai-shapira-54583a2ab/",
-    "https://github.com/ishapira1",
-    "https://scholar.google.com/citations?user=JOQXRbIAAAAJ",
-    "https://x.com/IShapira1"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": {{ site_root | append: "/#person" | jsonify }},
+      "name": {{ site.author.name | jsonify }},
+      "url": {{ site_root | jsonify }},
+      "image": {{ avatar_url | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "jobTitle": "PhD Candidate, Computer Science",
+      "email": {{ site.author.email | prepend: "mailto:" | jsonify }},
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": {{ site.author.employer | jsonify }}
+      },
+      "knowsAbout": [
+        "Pluralistic AI alignment",
+        "Algorithmic social choice",
+        "Optimization",
+        "Multi-agent systems"
+      ],
+      "sameAs": {{ site.social.links | jsonify }}
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ site_root | append: "/#website" | jsonify }},
+      "url": {{ site_root | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "alternateName": {{ site.name | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "publisher": {
+        "@id": {{ site_root | append: "/#person" | jsonify }}
+      }
+    }
   ]
 }
 </script>

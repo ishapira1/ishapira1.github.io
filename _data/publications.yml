@@ -7,7 +7,7 @@
     <a href="https://daniel-halpern.com/" target="_blank" rel="noopener noreferrer">Daniel Halpern</a>,
     <a href="https://evi-micha.github.io/" target="_blank" rel="noopener noreferrer">Evi Micha</a>,
     <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>,
-    <a href="https://bschiffer1.github.io/" target="_blank" rel="noopener noreferrer">Ben Schiffer</a>,
+    <a href="https://bschiffer1.github.io/" target="_blank" rel="noopener noreferrer">Benjamin Schiffer</a>,
     Itai Shapira,
     <a href="https://shirleykzhang.github.io/" target="_blank" rel="noopener noreferrer">Shirley Zhang</a>
   venue: SIGecom Exchanges (under review)
@@ -15,7 +15,7 @@
     # No conference or arXiv link available yet, so keep the PDF as the fallback.
     - label: PDF
       url: /files/ai-alignment-social-choice-perspectives-sigecom-exchanges-2026.pdf
-  note: Invited survey.
+  note:
   home_featured: true
 - id: C10
   type: conference
@@ -91,7 +91,7 @@
     #   url: https://openai.com/blog/democratic-inputs-to-ai-grant-program-update
     # - label: Talk
     #   url: https://www.youtube.com/watch?v=wS8YgEiXWOY
-  note: "Supersedes EC-24:"
+  note: "Extended version of the paper published at EC 2024"
   home_featured: false
 - id: C7
   type: conference
@@ -176,7 +176,7 @@
     #   url: https://arxiv.org/abs/2405.14758
   recognition:
     label: Spotlight
-    detail: Top 2.1% of NeurIPS 2024 submissions
+    detail: Top 2.1% of submissions
   note:
   home_featured: false
 - id: C3
@@ -197,7 +197,7 @@
     #   url: https://arxiv.org/abs/2405.17700
   recognition:
     label: Spotlight
-    detail: Top 2.1% of NeurIPS 2024 submissions
+    detail: Top 2.1% of submissions
   note:
   home_featured: false
 - id: C2
