@@ -10,12 +10,12 @@
     <a href="https://bschiffer1.github.io/" target="_blank" rel="noopener noreferrer">Benjamin Schiffer</a>,
     Itai Shapira,
     <a href="https://shirleykzhang.github.io/" target="_blank" rel="noopener noreferrer">Shirley Zhang</a>
-  venue: SIGecom Exchanges (under review)
+  venue: SIGecom Exchanges
   links:
     # No conference or arXiv link available yet, so keep the PDF as the fallback.
     - label: PDF
       url: /files/ai-alignment-social-choice-perspectives-sigecom-exchanges-2026.pdf
-  note:
+  note: July 2026
   home_featured: true
 - id: C10
   type: conference
