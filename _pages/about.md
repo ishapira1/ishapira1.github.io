@@ -24,11 +24,6 @@ redirect_from:
   </div>
 </section>
 
-<div class="about-note">
-  <span class="about-note-label">Update</span>
-  I’ll be at ICML 2026 in Seoul this July. If you’re attending, feel free to reach out.
-</div>
-
 <section class="home-section home-section--research">
   <div class="home-section-head">
     <div>
