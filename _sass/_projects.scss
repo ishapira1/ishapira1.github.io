@@ -619,7 +619,20 @@ $accent-gold: #f2c078;
 .project-directory {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+.project-group {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.page__content .project-group__title {
+  margin: 0;
+  padding-bottom: 0.4rem;
+  border-bottom-color: var(--theme-border);
+  color: var(--theme-text-strong);
+  font-size: 1.2rem;
 }
 
 .project-list {

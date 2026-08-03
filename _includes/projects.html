@@ -1,7 +1,9 @@
 {% include base_path %}
 
 <div class="project-directory">
-  <div class="project-list">
+  <section class="project-group" aria-labelledby="projects-mentoring">
+    <h2 class="project-group__title" id="projects-mentoring">Mentoring</h2>
+    <div class="project-list">
     <article class="project-item">
       <div class="selected-paper__meta">
         <div class="selected-paper__meta-main">
@@ -17,7 +19,12 @@
         Undergraduate thesis advising for <strong>Esther An</strong> at Harvard SEAS. Topic focused on evaluating and extending inverse constitutional AI for principled alignment.
       </p>
     </article>
+    </div>
+  </section>
 
+  <section class="project-group" aria-labelledby="projects-research">
+    <h2 class="project-group__title" id="projects-research">Research and course projects</h2>
+    <div class="project-list">
     <article class="project-item">
       <div class="selected-paper__meta">
         <div class="selected-paper__meta-main">
@@ -61,6 +68,9 @@
       <h2 class="selected-paper__title">
         <a class="selected-paper__stealth-link" href="{{ base_path }}/pdfs/Market_Power_And_Dropping_Strategies.pdf" target="_blank" rel="noopener noreferrer">Market Power and Strategic Drops: An Approach to Stable Matching Mechanisms</a>
       </h2>
+      <p class="project-description">
+        A study of market power and strategic participant withdrawals in stable matching mechanisms.
+      </p>
     </article>
 
     <article class="project-item">
@@ -78,7 +88,12 @@
         Thoughts on EoS and self-stabilizing training dynamics in gradient descent, built as a final project for <a href="https://sitanchen.com/cs224/f23/index.html" class="course-link" target="_blank" rel="noopener noreferrer">Harvard CS224</a>.
       </p>
     </article>
+    </div>
+  </section>
 
+  <section class="project-group" aria-labelledby="projects-implementation">
+    <h2 class="project-group__title" id="projects-implementation">Open-source and implementation</h2>
+    <div class="project-list">
     <article class="project-item">
       <div class="selected-paper__meta">
         <div class="selected-paper__meta-main">
@@ -104,11 +119,14 @@
           <span class="selected-paper__venue">Project</span>
           <span class="selected-paper__year">2023</span>
         </div>
-        <a class="selected-paper__action" href="https://github.com/ishapira1/LinearModeConnectivity" target="_blank" rel="noopener noreferrer">CODE</a>
+        <a class="selected-paper__action" href="https://github.com/ishapira1/LinearModeConnectivity" target="_blank" rel="noopener noreferrer">Code</a>
       </div>
       <h2 class="selected-paper__title">
         <a class="selected-paper__stealth-link" href="https://github.com/ishapira1/LinearModeConnectivity" target="_blank" rel="noopener noreferrer">Linear Mode Connectivity in Branching SGD Trajectories</a>
       </h2>
+      <p class="project-description">
+        An empirical study of linear mode connectivity between neural-network checkpoints produced by branching stochastic-gradient trajectories.
+      </p>
       <div class="selected-paper__links">
         <a href="{{ base_path }}/pdfs/LinearModeConnectivityBranchingTranjectories.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
       </div>
@@ -120,11 +138,15 @@
           <span class="selected-paper__venue">Project</span>
           <span class="selected-paper__year">2023</span>
         </div>
-        <a class="selected-paper__action" href="https://github.com/ishapira1/speculative_sampling" target="_blank" rel="noopener noreferrer">CODE</a>
+        <a class="selected-paper__action" href="https://github.com/ishapira1/speculative_sampling" target="_blank" rel="noopener noreferrer">Code</a>
       </div>
       <h2 class="selected-paper__title">
-        <a class="selected-paper__stealth-link" href="https://github.com/ishapira1/speculative_sampling" target="_blank" rel="noopener noreferrer">Accelerating LLMs Decoding Using Random Speculative Sampling Algorithm</a>
+        <a class="selected-paper__stealth-link" href="https://github.com/ishapira1/speculative_sampling" target="_blank" rel="noopener noreferrer">Accelerating LLM Decoding with Random Speculative Sampling</a>
       </h2>
+      <p class="project-description">
+        An implementation and experimental study of random speculative sampling for faster autoregressive language-model decoding.
+      </p>
     </article>
+    </div>
+  </section>
   </div>
-</div>

@@ -1,22 +1,19 @@
 {
-  "name": "minimal-mistakes",
-  "version": "3.4.2",
-  "description": "Minimal Mistakes Jekyll theme npm build scripts",
+  "name": "itai-shapira-academic-site",
+  "version": "1.0.0",
+  "description": "Build scripts for Itai Shapira's academic website",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mmistakes/minimal-mistakes.git"
+    "url": "https://github.com/ishapira1/ishapira1.github.io.git"
   },
   "keywords": [
     "jekyll",
     "theme",
-    "minimal"
+    "academic-website"
   ],
-  "author": "Michael Rose",
+  "author": "Itai Shapira",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
-  },
-  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
+  "homepage": "https://www.itai-shapira.com/",
   "engines": {
     "node": ">= 0.10.0"
   },

@@ -1,3 +1,7 @@
 # Local preview overrides for offline development in Codex.
 # Keep GitHub metadata disabled so Jekyll doesn't wait on network calls.
 github: false
+url: http://127.0.0.1:4000
+baseurl: ""
+analytics:
+  provider: false

@@ -7,6 +7,7 @@ author_profile: true
 redirect_from:
   - /publications/
   - /publications
+  - /icml-2026/
 ---
 
 {% include base_path %}

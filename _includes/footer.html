@@ -21,4 +21,7 @@
 <!--  </ul>-->
 <!--</div>-->
 
-<div class="page__footer-copyright">{{ site.name | default: site.title }}. Last update: {{ site.time | date: '%m/%y' }}</div>
+<div class="page__footer-copyright">
+  {{ site.name | default: site.title }}. Last update: {{ site.time | date: '%m/%y' }}
+  · <a href="{{ '/privacy/' | relative_url }}">Privacy</a>
+</div>
