@@ -17,7 +17,6 @@ core_pages = {
   "index.html" => "#{site_origin}/",
   "research/index.html" => "#{site_origin}/research/",
   "projects/index.html" => "#{site_origin}/projects/",
-  "cv/index.html" => "#{site_origin}/cv/",
   "privacy/index.html" => "#{site_origin}/privacy/"
 }.freeze
 
@@ -25,9 +24,14 @@ redirect_pages = {
   "about/index.html" => "#{site_origin}/",
   "publications/index.html" => "#{site_origin}/research/",
   "portfolio/index.html" => "#{site_origin}/projects/",
-  "resume.html" => "#{site_origin}/cv/",
   "terms/index.html" => "#{site_origin}/privacy/"
 }.freeze
+
+retired_paths = [
+  "cv/index.html",
+  "resume.html",
+  "files/resume.pdf"
+].freeze
 
 def read_html(path)
   File.binread(path).force_encoding(Encoding::UTF_8)
@@ -171,8 +175,12 @@ redirect_pages.each do |relative, expected_canonical|
   errors << "#{relative}: redirect must be noindex" unless robots.include?("noindex")
 end
 
+retired_paths.each do |relative|
+  errors << "Retired CV path still generated: #{relative}" if File.exist?(File.join(build_dir, relative))
+end
+
 if errors.empty?
-  puts "SEO audit passed (#{html_files.length} HTML files, #{core_pages.length} core pages, #{redirect_pages.length} legacy redirects)."
+  puts "SEO audit passed (#{html_files.length} HTML files, #{core_pages.length} core pages, #{redirect_pages.length} legacy redirects, #{retired_paths.length} retired CV paths)."
 else
   warn "SEO audit failed with #{errors.length} error(s):"
   errors.each { |error| warn "- #{error}" }

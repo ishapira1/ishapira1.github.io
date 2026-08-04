@@ -103,6 +103,7 @@ exclude:
   - CHANGELOG.md
   - Capfile
   - CONTRIBUTING.md
+  - files/resume.pdf
   - Gemfile
   - Gemfile.lock
   - Gruntfile.js
