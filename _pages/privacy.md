@@ -1,6 +1,7 @@
 ---
 permalink: /privacy/
 title: "Privacy"
+description: "Privacy information for Itai Shapira's academic website."
 modified: 2026-08-03
 redirect_from:
   - /terms/
