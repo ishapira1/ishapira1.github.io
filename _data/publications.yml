@@ -1,3 +1,19 @@
+- id: C10
+  type: conference
+  year: 2026
+  title: How RLHF Amplifies Sycophancy
+  authors_html: >-
+    Itai Shapira,
+    <a href="https://www.gerdusbenade.com/" target="_blank" rel="noopener noreferrer">Gerdus Benadè</a>,
+    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>
+  venue: ICML
+  links:
+    - label: ICML 2026
+      url: https://icml.cc/virtual/2026/poster/63414
+    # - label: arXiv
+    #   url: https://arxiv.org/abs/2602.01002
+  note:
+  home_featured: true
 - id: J2
   type: journal
   year: 2026
@@ -16,22 +32,6 @@
     - label: PDF
       url: /files/ai-alignment-social-choice-perspectives-sigecom-exchanges-2026.pdf
   note: July 2026
-  home_featured: true
-- id: C10
-  type: conference
-  year: 2026
-  title: How RLHF Amplifies Sycophancy
-  authors_html: >-
-    Itai Shapira,
-    <a href="https://www.gerdusbenade.com/" target="_blank" rel="noopener noreferrer">Gerdus Benadè</a>,
-    <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Ariel D. Procaccia</a>
-  venue: ICML
-  links:
-    - label: ICML 2026
-      url: https://icml.cc/virtual/2026/poster/63414
-    # - label: arXiv
-    #   url: https://arxiv.org/abs/2602.01002
-  note:
   home_featured: true
 - id: C9
   type: conference
