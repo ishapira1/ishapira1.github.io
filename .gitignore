@@ -2,3 +2,5 @@ _site/
 .DS_Store
 .bundle/
 vendor/bundle/
+.tools/ga4-mcp/.venv/
+.tools/ga4-mcp/__pycache__/
