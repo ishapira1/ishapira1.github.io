@@ -1,3 +1,17 @@
+- id: C11
+  type: conference
+  year: 2026
+  title: What Is Lost in Post-Training? Default Collapse and the Loss of In-Context Steerability Across Diverse Perspectives
+  authors_html: >-
+    <a href="https://hpi.de/en/boehmer/team/" target="_blank" rel="noopener noreferrer">Jessica Dierking</a><sup>†</sup>,
+    Itai Shapira<sup>†</sup>,
+    <a href="https://hpi.de/en/boehmer/team/niclas-boehmer/" target="_blank" rel="noopener noreferrer">Niclas Boehmer</a>
+  venue: NeurIPS 2026 Workshop on Foundations of LLM Post-Training in Changing Environments
+  links:
+    - label: PDF
+      url: /files/default_collpase.pdf
+  note: "† Equal contribution. Co-first authors are listed alphabetically."
+  home_featured: true
 - id: C10
   type: conference
   year: 2026
