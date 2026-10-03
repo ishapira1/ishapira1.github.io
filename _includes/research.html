@@ -43,8 +43,9 @@
   {% if show_notation %}
     <div class="research-notation research-notation--compact">
       <span class="notation-label">Notation:</span>
-      <span><span class="auth-marker">(α)</span> authors listed alphabetically</span>
-      <span><span class="auth-marker">(r)</span> equal contribution with randomized order among authors marked with †</span>
+      <span><span class="auth-marker">(α)</span> authors listed alphabetically; when marked with †, only the co-first authors are listed alphabetically</span>
+      <span><span class="auth-marker">†</span> equal contribution</span>
+      <span><span class="auth-marker">(r)</span> randomized order among authors marked with †</span>
     </div>
   {% endif %}
   <div class="selected-paper-list{% if scrollable %} selected-paper-list--scrollable{% endif %}">
@@ -129,8 +130,9 @@
 {% if show_notation %}
 <div class="research-notation">
   <span class="notation-label">Notation:</span>
-  <span><span class="auth-marker">(α)</span> authors listed alphabetically</span>
-  <span><span class="auth-marker">(r)</span> equal contribution with randomized order among authors marked with †</span>
+  <span><span class="auth-marker">(α)</span> authors listed alphabetically; when marked with †, only the co-first authors are listed alphabetically</span>
+  <span><span class="auth-marker">†</span> equal contribution</span>
+  <span><span class="auth-marker">(r)</span> randomized order among authors marked with †</span>
 </div>
 {% endif %}
 
