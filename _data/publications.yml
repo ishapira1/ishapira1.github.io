@@ -12,7 +12,7 @@
     - label: PDF
       url: /files/default_collpase.pdf
   note:
-  home_featured: true
+  home_featured: false
 - id: C10
   type: conference
   year: 2026
@@ -67,7 +67,7 @@
     # - label: arXiv
     #   url: https://arxiv.org/abs/2602.21297
   note:
-  home_featured: true
+  home_featured: false
 - id: C8
   type: conference
   year: 2026
@@ -147,7 +147,7 @@
     # - label: Tweet
     #   url: https://x.com/ShamKakade6/status/1836476197968187778
   note:
-  home_featured: false
+  home_featured: true
 - id: C5
   type: conference
   year: 2025
@@ -193,7 +193,7 @@
     label: Spotlight
     detail: Top 2.1% of submissions
   note:
-  home_featured: false
+  home_featured: true
 - id: C3
   type: conference
   year: 2024

@@ -8,6 +8,11 @@
   {% assign compact = true %}
 {% endif %}
 
+{% assign minimal = false %}
+{% if include.minimal == true or include.minimal == "true" %}
+  {% assign minimal = true %}
+{% endif %}
+
 {% assign scrollable = false %}
 {% if include.scrollable == true or include.scrollable == "true" %}
   {% assign scrollable = true %}
@@ -25,10 +30,7 @@
 
 {% assign publications = site.data.publications %}
 {% if featured_only %}
-  {% assign featured_publications = site.data.publications | where_exp: "item", "item.home_featured == true" %}
-  {% if featured_publications.size > 0 %}
-    {% assign publications = featured_publications %}
-  {% endif %}
+  {% assign publications = site.data.publications | where_exp: "item", "item.home_featured == true" %}
 {% endif %}
 
 {% if include.limit %}
@@ -39,7 +41,67 @@
 {% assign year_values = site.data.publications | map: "year" | uniq %}
 {% assign ordered_types = "conference,journal,working_paper,survey" | split: "," %}
 
-{% if compact %}
+{% if compact and minimal %}
+  <div class="selected-paper-list selected-paper-list--minimal">
+    {% for publication in publications %}
+      {% assign primary_link = publication.links | first %}
+      {% if primary_link %}
+        {% assign primary_link_href = primary_link.url %}
+        {% unless primary_link.url contains "://" %}
+          {% assign primary_link_href = base_path | append: primary_link.url %}
+        {% endunless %}
+      {% endif %}
+      {% assign venue_display = publication.venue %}
+      {% assign publication_year = publication.year | append: "" %}
+      {% if publication.venue and publication_year != "" %}
+        {% unless publication.venue contains publication_year %}
+          {% assign venue_display = publication.venue | append: " · " | append: publication_year %}
+        {% endunless %}
+      {% endif %}
+      <article class="minimal-paper">
+        <h3 class="minimal-paper__title">
+          {% if primary_link %}
+            <a href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a>
+          {% else %}
+            {{ publication.title }}
+          {% endif %}
+        </h3>
+        <p class="minimal-paper__authors">{{ publication.authors_html }}</p>
+        <div class="minimal-paper__meta">
+          <div class="minimal-paper__details">
+            <span class="minimal-paper__venue">{{ venue_display }}</span>
+            {% if publication.recognition and publication.recognition.label %}
+              <span class="minimal-paper__recognition">{{ publication.recognition.label }}{% if publication.recognition.detail %} · {{ publication.recognition.detail }}{% endif %}</span>
+            {% endif %}
+          </div>
+          {% if primary_link %}
+            <a class="minimal-paper__action" href="{{ primary_link_href }}" target="_blank" rel="noopener noreferrer" aria-label="Paper: {{ publication.title | escape }}">Paper <span aria-hidden="true">→</span></a>
+          {% endif %}
+        </div>
+        {% if publication.note %}
+          <p class="minimal-paper__note">{{ publication.note }}</p>
+        {% endif %}
+        {% if publication.links.size > 1 %}
+          <div class="minimal-paper__links">
+            {% for link in publication.links offset:1 %}
+              {% assign link_href = link.url %}
+              {% unless link.url contains "://" %}
+                {% assign link_href = base_path | append: link.url %}
+              {% endunless %}
+              <a href="{{ link_href }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+  {% if show_notation and publications.size > 0 %}
+    <p class="minimal-paper-notation">
+      <span><span class="auth-marker">(α)</span> Authors listed alphabetically.</span>
+      <span><span class="auth-marker">†</span> Equal contribution.</span>
+    </p>
+  {% endif %}
+{% elsif compact %}
   {% if show_notation %}
     <div class="research-notation research-notation--compact">
       <span class="notation-label">Notation:</span>

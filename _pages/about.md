@@ -24,12 +24,12 @@ redirect_from:
   </div>
 </section>
 
-<section class="home-section home-section--research">
+<section class="home-section home-section--research home-section--selected-publications" aria-labelledby="selected-publications-heading">
   <div class="home-section-head">
     <div>
-      <h2>Research</h2>
+      <h2 id="selected-publications-heading">Selected Publications</h2>
     </div>
-    <a class="home-view-all" href="/research/">See full research list</a>
+    <a class="home-view-all" href="{{ site.baseurl }}/research/">View all research <span aria-hidden="true">→</span></a>
   </div>
-  {% include research.html compact=true scrollable=true show_filters=false show_notation=true %}
+  {% include research.html featured_only=true compact=true minimal=true scrollable=false show_filters=false show_notation=true %}
 </section>
