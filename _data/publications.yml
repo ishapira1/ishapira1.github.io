@@ -1,3 +1,17 @@
+- id: C12
+  type: conference
+  year: 2026
+  title: Is Sycophancy a Form of In-Context Updating?
+  authors_html: >-
+    Itai Shapira,
+    <a href="https://myracheng.github.io/" target="_blank" rel="noopener noreferrer">Myra Cheng</a>,
+    <a href="https://orgadhadas.github.io/" target="_blank" rel="noopener noreferrer">Hadas Orgad</a>
+  venue: "Interpretability as a Science: NeurIPS 2026 Workshop"
+  links:
+    - label: PDF
+      url: /files/is-sycophancy-a-form-of-in-context-updating-neurips-2026.pdf
+  note:
+  home_featured: true
 - id: C11
   type: conference
   year: 2026
