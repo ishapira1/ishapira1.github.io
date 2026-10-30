@@ -17,13 +17,7 @@ redirect_from:
       <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Prof. Ariel D. Procaccia</a>.
     </p>
     <p>
-      I study AI alignment: how human goals and values become training objectives, and how optimizing those objectives shapes AI behavior.
-      I aim to understand the limitations of current alignment methods and develop better ones.
-    </p>
-    <p>
-      In particular, I ask how AI can learn from our judgments (i) without inheriting their flaws, such as sycophancy;
-      (ii) when those judgments conflict (pluralistic alignment); and
-      (iii) when what we approve of differs from what ultimately serves us (multi-turn alignment).
+      I’m interested in AI alignment. I study how human goals and values become training objectives, and how optimization toward those objectives shapes AI behavior. I’m interested in understanding the limitations of current alignment methods and developing better ones. I think about how AI can learn from our judgments (i) without inheriting their flaws (e.g., sycophancy), (ii) when those judgments conflict (pluralistic alignment), and (iii) when what we approve of differs from what ultimately serves us (multi-turn alignment).
     </p>
     <p>
       I am a <a href="https://www.siebelscholars.com/articles/siebel-scholars-foundation-announces-class-of-2027/" target="_blank" rel="noopener noreferrer">Siebel Scholar</a> (Class of 2027) and a recipient of the 2025 JPMorgan Chase PhD Fellowship. I am affiliated with the
