@@ -17,7 +17,16 @@ redirect_from:
       <a href="https://procaccia.info/" target="_blank" rel="noopener noreferrer">Prof. Ariel D. Procaccia</a>.
     </p>
     <p>
-      I am a <a href="https://www.siebelscholars.com/articles/siebel-scholars-foundation-announces-class-of-2027/" target="_blank" rel="noopener noreferrer">Siebel Scholar</a> (Class of 2027) and a recipient of the 2025 JPMorgan Chase PhD Fellowship. I was also supported by the Nicole A. Chen and Karina A. Chen Graduate Student Research Fellowship. I am affiliated with the
+      I study AI alignment: how human goals and values become training objectives, and how optimizing those objectives shapes AI behavior.
+      I aim to understand the limitations of current alignment methods and develop better ones.
+    </p>
+    <p>
+      In particular, I ask how AI can learn from our judgments (i) without inheriting their flaws, such as sycophancy;
+      (ii) when those judgments conflict (pluralistic alignment); and
+      (iii) when what we approve of differs from what ultimately serves us (multi-turn alignment).
+    </p>
+    <p>
+      I am a <a href="https://www.siebelscholars.com/articles/siebel-scholars-foundation-announces-class-of-2027/" target="_blank" rel="noopener noreferrer">Siebel Scholar</a> (Class of 2027) and a recipient of the 2025 JPMorgan Chase PhD Fellowship. I am affiliated with the
       <a href="https://www.cmu.edu/ai-sdm/students/index.html" target="_blank" rel="noopener noreferrer">NSF AI Institute for Societal Decision Making</a>
       and serve on its Student Leadership Council.
     </p>

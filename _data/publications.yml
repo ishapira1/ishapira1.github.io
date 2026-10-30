@@ -11,7 +11,7 @@
     - label: arXiv
       url: https://arxiv.org/abs/2610.28325
   note:
-  home_featured: true
+  home_featured: false
 - id: C11
   type: conference
   year: 2026
